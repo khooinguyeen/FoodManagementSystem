@@ -20,12 +20,15 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     ptrIngredient = new Ingredient();
+    ptrRecipe = new Recipe();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
     delete ptrIngredient;
+    delete ptrRecipe;
+
     database.close();
     QSqlDatabase::removeDatabase(database.connectionName());
 }
@@ -33,5 +36,11 @@ MainWindow::~MainWindow()
 void MainWindow::on_ingredientButton_clicked()
 {
     ptrIngredient->show();
+}
+
+
+void MainWindow::on_recipeButton_clicked()
+{
+    ptrRecipe->show();
 }
 

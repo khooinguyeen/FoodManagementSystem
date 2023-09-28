@@ -27,6 +27,19 @@
      <string>Ingredient</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="recipeButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>50</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Recipe</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
