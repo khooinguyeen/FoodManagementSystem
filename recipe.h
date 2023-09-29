@@ -23,10 +23,13 @@ private slots:
 
     void on_btnRemove_clicked();
 
+    void on_btnSearch_clicked();
+
 private:
     Ui::Recipe *ui;
     AddRecipe *ptrAddRecipe;
     RemoveRecipe *ptrRemoveRecipe;
+    QSqlQueryModel *model;
 };
 
 #endif // RECIPE_H
