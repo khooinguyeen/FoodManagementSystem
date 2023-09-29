@@ -21,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ptrIngredient = new Ingredient();
     ptrRecipe = new Recipe();
+    ptrMealPlan = new MealPlan();
 }
 
 MainWindow::~MainWindow()
@@ -28,6 +29,7 @@ MainWindow::~MainWindow()
     delete ui;
     delete ptrIngredient;
     delete ptrRecipe;
+    delete ptrMealPlan;
 
     database.close();
     QSqlDatabase::removeDatabase(database.connectionName());
@@ -42,5 +44,11 @@ void MainWindow::on_ingredientButton_clicked()
 void MainWindow::on_recipeButton_clicked()
 {
     ptrRecipe->show();
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    ptrMealPlan->show();
 }
 
