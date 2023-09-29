@@ -2,6 +2,7 @@
 #define REMOVERECIPE_H
 
 #include <QDialog>
+#include "databaseheader.h"
 
 namespace Ui {
 class RemoveRecipe;
@@ -15,8 +16,12 @@ public:
     explicit RemoveRecipe(QWidget *parent = nullptr);
     ~RemoveRecipe();
 
+private slots:
+    void on_buttonBox_accepted();
+
 private:
     Ui::RemoveRecipe *ui;
+    QSqlDatabase database;
 };
 
 #endif // REMOVERECIPE_H
