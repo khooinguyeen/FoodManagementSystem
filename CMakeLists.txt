@@ -34,6 +34,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         recipe.h recipe.cpp recipe.ui
         addrecipe.h addrecipe.cpp addrecipe.ui
         removerecipe.h removerecipe.cpp removerecipe.ui
+        mealplan.h mealplan.cpp mealplan.ui
 
     )
 # Define target properties for Android with Qt 6 as:
