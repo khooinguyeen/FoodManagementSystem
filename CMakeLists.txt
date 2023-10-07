@@ -24,7 +24,7 @@ set(PROJECT_SOURCES
         addingredient.cpp
         addingredient.ui
         databaseheader.h
-)
+ )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(FoodManagementSystem
@@ -35,6 +35,14 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         addrecipe.h addrecipe.cpp addrecipe.ui
         removerecipe.h removerecipe.cpp removerecipe.ui
         mealplan.h mealplan.cpp mealplan.ui
+        storage.h storage.cpp storage.ui
+        addtostorage.h addtostorage.cpp addtostorage.ui
+        removefromstorage.h removefromstorage.cpp removefromstorage.ui
+        list.h list.cpp
+
+
+
+
 
     )
 # Define target properties for Android with Qt 6 as:
