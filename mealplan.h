@@ -24,6 +24,8 @@ private slots:
 
     void on_btnAdd_clicked();
 
+    void on_btnDelete_clicked();
+
 private:
     Ui::MealPlan *ui;
     QSqlDatabase database;

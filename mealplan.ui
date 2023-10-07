@@ -107,11 +107,14 @@
      <height>151</height>
     </rect>
    </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QPushButton" name="btnDelete">
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>570</x>
      <y>260</y>
      <width>80</width>
      <height>24</height>
@@ -119,19 +122,6 @@
    </property>
    <property name="text">
     <string>Delete</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btnEdit">
-   <property name="geometry">
-    <rect>
-     <x>540</x>
-     <y>260</y>
-     <width>80</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Edit</string>
    </property>
   </widget>
  </widget>
