@@ -10,6 +10,7 @@ AddToStorage::AddToStorage(QWidget *parent) :
 
 AddToStorage::~AddToStorage()
 {
+    qDebug() << "~AddtoStorage()";
     delete ui;
 }
 
@@ -41,5 +42,67 @@ void AddToStorage::on_btnSave_clicked()
     query.clear();
     qDebug() << "Last error: " << query.lastError().text();
     on_btnReset_clicked();
+}
+
+
+void AddToStorage::on_loadIngredientsButton_clicked()
+{
+    ui->existingIngredientsComboBox->clear();
+
+    QSqlDatabase database = QSqlDatabase::database("DB0");
+    QSqlQuery query(database);
+
+    query.prepare("select IngredientName from Ingredient");
+    query.exec();
+    while(query.next())
+    {
+        ui->existingIngredientsComboBox->addItem(query.value(0).toString());
+        qDebug() << "Filling Combobox " << query.value(0).toString();
+    }
+
+    qDebug() << "Last error : "<< query.lastQuery();
+    qDebug() << "Last error : "<< query.lastError().text();
+}
+
+
+
+void AddToStorage::on_existingIngredientsComboBox_activated(int index)
+{
+    QString ingredientName = ui->existingIngredientsComboBox->currentText();
+    QSqlDatabase database = QSqlDatabase::database("DB0");
+    QSqlQuery query(database);
+
+    query.prepare("select IngredientName from Ingredient where IngredientName = '" + ingredientName + "'");
+    query.exec();
+    query.next();
+    ui->ingredientNameLineEdit->setText(query.value(0).toString());
+    query.finish();
+    query.clear();
+    qDebug() << "last error: " << query.lastQuery();
+    qDebug() << "last error: " << query.lastError().text();
+    query.prepare("select IngredientQuantity from Ingredient where IngredientName = '" + ingredientName + "'");
+    query.exec();
+    query.next();
+    ui->quantityLineEdit->setText(query.value(0).toString());
+    query.finish();
+    query.clear();
+    qDebug() << "last error: " << query.lastQuery();
+    qDebug() << "last error: " << query.lastError().text();
+    query.prepare("select IngredientExpiryDate from Ingredient where IngredientName = '" + ingredientName + "'");
+    query.exec();
+    query.next();
+    ui->expiredDateLineEdit->setText(query.value(0).toString());
+    query.finish();
+    query.clear();
+    qDebug() << "last error: " << query.lastQuery();
+    qDebug() << "last error: " << query.lastError().text();
+    query.prepare("select IngredientDescription from Ingredient where IngredientName = '" + ingredientName + "'");
+    query.exec();
+    query.next();
+    ui->txtDescription->setText(query.value(0).toString());
+    query.finish();
+    query.clear();
+    qDebug() << "last error: " << query.lastQuery();
+    qDebug() << "last error: " << query.lastError().text();
 }
 

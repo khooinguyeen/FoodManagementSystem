@@ -23,7 +23,33 @@ set(PROJECT_SOURCES
         addingredient.h
         addingredient.cpp
         addingredient.ui
+        removeingredient.h
+        removeingredient.cpp
+        removeingredient.ui
         databaseheader.h
+        recipe.h
+        recipe.cpp
+        recipe.ui
+        addrecipe.h
+        addrecipe.cpp
+        addrecipe.ui
+        removerecipe.h
+        removerecipe.cpp
+        removerecipe.ui
+        mealplan.h
+        mealplan.cpp
+        mealplan.ui
+        storage.h
+        storage.cpp
+        storage.ui
+        addtostorage.h
+        addtostorage.cpp
+        addtostorage.ui
+        removefromstorage.h
+        removefromstorage.cpp
+        removefromstorage.ui
+
+
  )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -38,11 +64,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         storage.h storage.cpp storage.ui
         addtostorage.h addtostorage.cpp addtostorage.ui
         removefromstorage.h removefromstorage.cpp removefromstorage.ui
-        list.h list.cpp
-
-
-
-
 
     )
 # Define target properties for Android with Qt 6 as:

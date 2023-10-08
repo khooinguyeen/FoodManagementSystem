@@ -2,6 +2,7 @@
 #define REMOVEFROMSTORAGE_H
 
 #include <QDialog>
+#include "databaseheader.h"
 
 namespace Ui {
 class RemoveFromStorage;
@@ -18,7 +19,7 @@ public:
 private slots:
     void on_acceptButton_clicked();
 
-    void on_cancelButton_clicked();
+    void on_resetButton_clicked();
 
 private:
     Ui::RemoveFromStorage *ui;

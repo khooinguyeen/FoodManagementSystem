@@ -21,6 +21,10 @@ private slots:
 
     void on_btnSave_clicked();
 
+    void on_loadIngredientsButton_clicked();
+
+    void on_existingIngredientsComboBox_activated(int index);
+
 private:
     Ui::AddToStorage *ui;
 };
