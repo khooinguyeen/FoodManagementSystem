@@ -48,6 +48,8 @@ set(PROJECT_SOURCES
         removefromstorage.h
         removefromstorage.cpp
         removefromstorage.ui
+        list.h
+        list.cpp
 
 
  )
@@ -64,6 +66,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         storage.h storage.cpp storage.ui
         addtostorage.h addtostorage.cpp addtostorage.ui
         removefromstorage.h removefromstorage.cpp removefromstorage.ui
+        list.h list.cpp
+
+
 
     )
 # Define target properties for Android with Qt 6 as:

@@ -5,12 +5,13 @@
 #include "databaseheader.h"
 #include "addtostorage.h"
 #include "removefromstorage.h"
+#include "list.h"
 
 namespace Ui {
 class Storage;
 }
 
-class Storage : public QDialog
+class Storage : public QDialog, public List
 {
     Q_OBJECT
 
