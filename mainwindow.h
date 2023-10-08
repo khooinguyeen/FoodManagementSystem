@@ -5,6 +5,7 @@
 #include "ingredient.h"
 #include "recipe.h"
 #include "mealplan.h"
+#include "storage.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,11 +28,14 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_storageButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     Ingredient *ptrIngredient;
     Recipe *ptrRecipe;
     MealPlan *ptrMealPlan;
+    Storage *ptrStorage;
 
     QSqlDatabase database;
 };

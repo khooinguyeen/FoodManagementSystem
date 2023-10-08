@@ -1,6 +1,5 @@
 #include "addingredient.h"
 #include "ui_addingredient.h"
-
 AddIngredient::AddIngredient(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddIngredient)
