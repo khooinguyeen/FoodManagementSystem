@@ -1,15 +1,14 @@
 #include "list.h"
-#include <iostream>
+#include "ui_list.h"
 
-List::List()
+List::List(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::List)
 {
-
+    ui->setupUi(this);
 }
 
-void List::loadAllIngredients() {
-
-}
-
-List::~List() {
-    qDebug() << "~List()";
+List::~List()
+{
+    delete ui;
 }
