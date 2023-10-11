@@ -18,6 +18,9 @@ MealPlan::~MealPlan()
 
 void MealPlan::on_btnLoad_clicked()
 {
+    ui->cmbBreakfast->clear();
+    ui->cmbLunch->clear();
+    ui->cmbDinner->clear();
     QSqlQuery query(database);
 
     query.prepare("select RecipeName from Recipe");

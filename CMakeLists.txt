@@ -39,19 +39,9 @@ set(PROJECT_SOURCES
         mealplan.h
         mealplan.cpp
         mealplan.ui
-        storage.h
-        storage.cpp
-        storage.ui
-        addtostorage.h
-        addtostorage.cpp
-        addtostorage.ui
-        removefromstorage.h
-        removefromstorage.cpp
-        removefromstorage.ui
         list.h
         list.cpp
-
-
+        list.ui
  )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -63,10 +53,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         addrecipe.h addrecipe.cpp addrecipe.ui
         removerecipe.h removerecipe.cpp removerecipe.ui
         mealplan.h mealplan.cpp mealplan.ui
-        storage.h storage.cpp storage.ui
-        addtostorage.h addtostorage.cpp addtostorage.ui
-        removefromstorage.h removefromstorage.cpp removefromstorage.ui
         list.h list.cpp list.ui
+        storage.h storage.cpp
+        shoppinglist.h shoppinglist.cpp
 
 
 
