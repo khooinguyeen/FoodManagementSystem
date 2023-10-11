@@ -6,7 +6,9 @@
 #include "recipe.h"
 #include "mealplan.h"
 #include "storage.h"
-#include "shoppinglist.h"
+//#include "shoppinglist.h"
+#include "onlineshopping.h"
+#include "marketpurchasing.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -39,7 +41,9 @@ private:
     Recipe *ptrRecipe;
     MealPlan *ptrMealPlan;
     Storage *ptrStorage;
-    ShoppingList *ptrShoppingList;
+//    ShoppingList *ptrShoppingList;
+    OnlineShopping *ptrOnlineShopping;
+    MarketPurchasing *ptrMarketPurchasing;
     QSqlDatabase database;
 };
 #endif // MAINWINDOW_H
