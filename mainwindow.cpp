@@ -9,8 +9,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     database = QSqlDatabase::addDatabase("QSQLITE", "DB0");
-    database.setDatabaseName("C:/Users/Legion/Documents/GitHub/FoodManagementSystem/FoodManagementSystem.db");
-
+//    database.setDatabaseName("C:/Users/Legion/Documents/GitHub/FoodManagementSystem/FoodManagementSystem.db");
+    database.setDatabaseName("D:/Games and Apps/Qt app/FoodManagementSystem/FoodManagementSystem.db");
     if(!database.open()){
         qDebug() << "Error: Unable to open database..";
     }
@@ -22,7 +22,9 @@ MainWindow::MainWindow(QWidget *parent)
     ptrIngredient = new Ingredient();
     ptrRecipe = new Recipe();
     ptrMealPlan = new MealPlan();
+    ptrShoppingList = new ShoppingList();
     ptrStorage = new Storage();
+
 }
 
 MainWindow::~MainWindow()
@@ -32,6 +34,7 @@ MainWindow::~MainWindow()
     delete ptrRecipe;
     delete ptrMealPlan;
     delete ptrStorage;
+    delete ptrShoppingList;
 
     database.close();
     QSqlDatabase::removeDatabase(database.connectionName());
@@ -55,8 +58,15 @@ void MainWindow::on_pushButton_clicked()
 }
 
 
+
 void MainWindow::on_storageButton_clicked()
 {
     ptrStorage->show();
+}
+
+
+void MainWindow::on_shoppinglistButton_clicked()
+{
+    ptrShoppingList->show();
 }
 

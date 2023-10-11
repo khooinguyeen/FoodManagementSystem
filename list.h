@@ -1,24 +1,32 @@
 #ifndef LIST_H
 #define LIST_H
+
+#include <QWidget>
 #include "databaseheader.h"
 
-class List
+namespace Ui {
+class List;
+}
+
+class List : public QWidget
 {
-
-private:
-
-private slots:
-    virtual void on_listItemButton_clicked() = 0;
-
-    virtual void on_addButton_clicked() = 0;
-
-    virtual void on_removeButton_clicked() = 0;
+    Q_OBJECT
 
 public:
-    List();
-    virtual void loadAllIngredients();
-    virtual ~List();
+    explicit List(QWidget *parent = nullptr);
+    virtual void addIngredient() = 0;
+    virtual void removeIngredient() = 0;
+    virtual void loadAllElements() = 0;
+    ~List();
 
+private slots:
+    void on_btnAdd_clicked();
+
+    void on_btnRemove_clicked();
+
+private:
+    Ui::List *ui;
+    QSqlDatabase database;
 };
 
 #endif // LIST_H

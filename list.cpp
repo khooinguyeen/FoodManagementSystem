@@ -1,15 +1,27 @@
 #include "list.h"
-#include <iostream>
+#include "ui_list.h"
 
-List::List()
+List::List(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::List)
 {
-
+    ui->setupUi(this);
+    database = QSqlDatabase::database("DB0");
 }
 
-void List::loadAllIngredients() {
-
+List::~List()
+{
+    delete ui;
 }
 
-List::~List() {
-    qDebug() << "~List()";
+void List::on_btnAdd_clicked()
+{
+    addIngredient();
 }
+
+
+void List::on_btnRemove_clicked()
+{
+    removeIngredient();
+}
+
