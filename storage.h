@@ -10,6 +10,8 @@ public:
     void addIngredient();
     void removeIngredient();
     void loadAllElements();
+    void showInfo();
+    ~Storage();
 };
 
 #endif // STORAGE_H

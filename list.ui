@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>394</width>
+    <width>522</width>
     <height>313</height>
    </rect>
   </property>
@@ -26,8 +26,8 @@
   <widget class="QPushButton" name="btnRemove">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>40</y>
+     <x>420</x>
+     <y>220</y>
      <width>80</width>
      <height>24</height>
     </rect>
@@ -39,14 +39,27 @@
   <widget class="QPushButton" name="btnAdd">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>10</y>
+     <x>310</x>
+     <y>220</y>
      <width>80</width>
      <height>24</height>
     </rect>
    </property>
    <property name="text">
     <string>Add</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="txtIngredientInfo">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>30</y>
+     <width>191</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>

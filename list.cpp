@@ -25,3 +25,9 @@ void List::on_btnRemove_clicked()
     removeIngredient();
 }
 
+
+void List::on_listWidget_itemClicked(QListWidgetItem *item)
+{
+    showInfo();
+}
+

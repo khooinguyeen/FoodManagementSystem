@@ -10,6 +10,7 @@ public:
     void addIngredient();
     void removeIngredient();
     void loadAllElements();
+    void showInfo();
 };
 
 #endif // SHOPPINGLIST_H

@@ -56,6 +56,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         list.h list.cpp list.ui
         storage.h storage.cpp
         shoppinglist.h shoppinglist.cpp
+        addtostorage.h addtostorage.cpp addtostorage.ui
 
 
 
