@@ -22,8 +22,9 @@ MainWindow::MainWindow(QWidget *parent)
     ptrIngredient = new Ingredient();
     ptrRecipe = new Recipe();
     ptrMealPlan = new MealPlan();
-    ptrShoppingList = new ShoppingList();
     ptrStorage = new Storage();
+    ptrOnlineShopping = new OnlineShopping();
+    ptrMarketPurchasing = new MarketPurchasing();
 
 }
 
@@ -34,7 +35,9 @@ MainWindow::~MainWindow()
     delete ptrRecipe;
     delete ptrMealPlan;
     delete ptrStorage;
-    delete ptrShoppingList;
+//    delete ptrShoppingList;
+    delete ptrOnlineShopping;
+    delete ptrMarketPurchasing;
 
     database.close();
     QSqlDatabase::removeDatabase(database.connectionName());
@@ -67,6 +70,7 @@ void MainWindow::on_storageButton_clicked()
 
 void MainWindow::on_shoppinglistButton_clicked()
 {
-    ptrShoppingList->show();
+    ptrOnlineShopping->show();
+    ptrMarketPurchasing->show();
 }
 
