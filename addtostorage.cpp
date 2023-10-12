@@ -18,7 +18,8 @@ void AddToStorage::on_cbxloadIngredients_activated(int index)
     on_btnReset_clicked();
     QSqlDatabase database = QSqlDatabase::database("DB0");
     QSqlQuery query(database);
-    query.prepare("Select IngredientName, IngredientQuantity, IngredientExpiryDate from Ingredient");
+    QString ingredientName = ui->cbxloadIngredients->currentText();
+    query.prepare("Select IngredientName, IngredientQuantity, IngredientExpiryDate from Ingredient where IngredientName like '%" + ingredientName +"'");
     query.exec();
     if(query.next()) {
         ui->ingredientNameLineEdit->setText(query.value(0).toString());
