@@ -11,6 +11,7 @@ List::List(QWidget *parent) :
 
 List::~List()
 {
+    qDebug() << "~List()";
     delete ui;
 }
 
@@ -23,5 +24,17 @@ void List::on_btnAdd_clicked()
 void List::on_btnRemove_clicked()
 {
     removeIngredient();
+}
+
+
+void List::on_btnLoad_clicked()
+{
+    loadAllElements();
+}
+
+
+void List::on_listWidget_itemClicked(QListWidgetItem *item)
+{
+    showInfo();
 }
 

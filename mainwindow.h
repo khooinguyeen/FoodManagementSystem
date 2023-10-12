@@ -6,7 +6,6 @@
 #include "recipe.h"
 #include "mealplan.h"
 #include "storage.h"
-//#include "shoppinglist.h"
 #include "onlineshopping.h"
 #include "marketpurchasing.h"
 
@@ -41,7 +40,6 @@ private:
     Recipe *ptrRecipe;
     MealPlan *ptrMealPlan;
     Storage *ptrStorage;
-//    ShoppingList *ptrShoppingList;
     OnlineShopping *ptrOnlineShopping;
     MarketPurchasing *ptrMarketPurchasing;
     QSqlDatabase database;

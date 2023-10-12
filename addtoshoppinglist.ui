@@ -49,7 +49,7 @@
     <item row="0" column="1">
      <widget class="QComboBox" name="ingredientComboBox"/>
     </item>
-    <item row="1" column="0">
+    <item row="2" column="0">
      <widget class="QLabel" name="onlineShoppingLinkLabel">
       <property name="font">
        <font>
@@ -62,40 +62,40 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
+    <item row="2" column="1">
      <widget class="QLineEdit" name="onlineShoppingLinkLineEdit"/>
     </item>
-    <item row="3" column="0">
+    <item row="4" column="0">
      <widget class="QLabel" name="marketNameLabel">
       <property name="text">
        <string>Market Name</string>
       </property>
      </widget>
     </item>
-    <item row="3" column="1">
+    <item row="4" column="1">
      <widget class="QLineEdit" name="marketNameLineEdit"/>
     </item>
-    <item row="4" column="0">
+    <item row="5" column="0">
      <widget class="QLabel" name="phoneNumberLabel">
       <property name="text">
        <string>Phone Number</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="1">
+    <item row="5" column="1">
      <widget class="QLineEdit" name="phoneNumberLineEdit"/>
     </item>
-    <item row="5" column="0">
+    <item row="6" column="0">
      <widget class="QLabel" name="locationLabel">
       <property name="text">
        <string>Location</string>
       </property>
      </widget>
     </item>
-    <item row="5" column="1">
+    <item row="6" column="1">
      <widget class="QLineEdit" name="locationLineEdit"/>
     </item>
-    <item row="2" column="0">
+    <item row="3" column="0">
      <widget class="QLabel" name="label">
       <property name="enabled">
        <bool>true</bool>
@@ -125,6 +125,16 @@
        <set>Qt::AlignBottom|Qt::AlignHCenter</set>
       </property>
      </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="noteLabel">
+      <property name="text">
+       <string>Note</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="noteLineEdit"/>
     </item>
    </layout>
   </widget>

@@ -2,6 +2,7 @@
 #define LIST_H
 
 #include <QWidget>
+#include <QListWidget>
 #include "databaseheader.h"
 
 namespace Ui {
@@ -17,6 +18,7 @@ public:
     virtual void addIngredient() = 0;
     virtual void removeIngredient() = 0;
     virtual void loadAllElements() = 0;
+    virtual void showInfo() = 0;
     ~List();
 
 private slots:
@@ -24,7 +26,11 @@ private slots:
 
     void on_btnRemove_clicked();
 
-private:
+    void on_btnLoad_clicked();
+
+    void on_listWidget_itemClicked(QListWidgetItem *item);
+
+protected:
     Ui::List *ui;
     QSqlDatabase database;
 };

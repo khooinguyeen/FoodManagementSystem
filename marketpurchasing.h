@@ -5,8 +5,12 @@
 
 class MarketPurchasing : public ShoppingList
 {
+    Q_OBJECT
 public:
-    MarketPurchasing();
+    MarketPurchasing(QWidget *parent = nullptr);
+    void loadAllElements();
+    void showMarketInfo();
+    void showInfo() override;
 };
 
 #endif // MARKETPURCHASING_H

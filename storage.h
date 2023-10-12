@@ -6,10 +6,11 @@
 class Storage : public List
 {
 public:
-    Storage();
+    Storage(QWidget *parent = nullptr);
     void addIngredient();
     void removeIngredient();
     void loadAllElements();
+    void showInfo();
 };
 
 #endif // STORAGE_H
