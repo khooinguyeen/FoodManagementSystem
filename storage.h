@@ -11,6 +11,7 @@ public:
     void removeIngredient();
     void loadAllElements();
     void showInfo();
+    ~Storage();
 };
 
 #endif // STORAGE_H
