@@ -55,7 +55,7 @@
     <string>Add</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="txtIngredientInfo">
+  <widget class="QTextEdit" name="txtInfo">
    <property name="geometry">
     <rect>
      <x>310</x>
@@ -66,6 +66,19 @@
    </property>
    <property name="readOnly">
     <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnLoad">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>260</y>
+     <width>80</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Load</string>
    </property>
   </widget>
  </widget>

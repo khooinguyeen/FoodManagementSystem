@@ -31,6 +31,8 @@ private slots:
 
     void on_listWidget_itemClicked(QListWidgetItem *item);
 
+    void on_btnLoad_clicked();
+
 protected:
     Ui::List *ui;
     QSqlDatabase database;

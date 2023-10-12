@@ -3,8 +3,7 @@
 #include "addtostorage.h"
 #include <QMessageBox>
 
-Storage::Storage() : List(){
-    loadAllElements();
+Storage::Storage(QWidget *parent) : List(parent){
 }
 
 void Storage::addIngredient(){
@@ -45,12 +44,12 @@ void Storage::loadAllElements(){
 
 }
 void Storage::showInfo(){
-    ui->txtIngredientInfo->clear();
+    ui->txtInfo->clear();
     qDebug() << "show ingredient info on the widget list in Storage";
     QString ingredientName = ui->listWidget->currentItem()->text();
     qDebug() << "item clicked: " << ingredientName;
-    ui->txtIngredientInfo->append("INGREDIENT INFORMATION");
-    ui->txtIngredientInfo->append("\n");
+    ui->txtInfo->append("INGREDIENT INFORMATION");
+    ui->txtInfo->append("\n");
     QSqlDatabase database = QSqlDatabase::database("DB0");
     QSqlQuery query(database);
     query.prepare("Select ID, IngredientName, Quantity, ExpiredDate from Storage where IngredientName = :name");
@@ -61,10 +60,10 @@ void Storage::showInfo(){
         QString name = query.value(1).toString();
         QString quantity = query.value(2).toString();
         QString expiredDate = query.value(3).toString();
-        ui->txtIngredientInfo->append("ID: " + id);
-        ui->txtIngredientInfo->append("Ingredient name: " + name);
-        ui->txtIngredientInfo->append("Quantity: " + quantity);
-        ui->txtIngredientInfo->append("Expired date: " + expiredDate);
+        ui->txtInfo->append("ID: " + id);
+        ui->txtInfo->append("Ingredient name: " + name);
+        ui->txtInfo->append("Quantity: " + quantity);
+        ui->txtInfo->append("Expired date: " + expiredDate);
         qDebug() << query.lastQuery();
         qDebug() << query.lastError().text();
     }

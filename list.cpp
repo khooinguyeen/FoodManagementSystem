@@ -31,3 +31,8 @@ void List::on_listWidget_itemClicked(QListWidgetItem *item)
     showInfo();
 }
 
+void List::on_btnLoad_clicked(){
+    qDebug() << "load all elements" ;
+    loadAllElements();
+}
+
