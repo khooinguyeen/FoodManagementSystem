@@ -2,8 +2,11 @@
 #define LIST_H
 
 #include <QWidget>
-#include <QListWidget>
+#include <qlistwidget.h>
 #include "databaseheader.h"
+#include "addtostorage.h"
+#include "removefromstorage.h"
+
 
 namespace Ui {
 class List;
@@ -19,20 +22,23 @@ public:
     virtual void removeIngredient() = 0;
     virtual void loadAllElements() = 0;
     virtual void showInfo() = 0;
-    ~List();
+    virtual ~List();
 
 private slots:
     void on_btnAdd_clicked();
 
     void on_btnRemove_clicked();
 
-    void on_btnLoad_clicked();
-
     void on_listWidget_itemClicked(QListWidgetItem *item);
+
+    void on_btnLoad_clicked();
 
 protected:
     Ui::List *ui;
     QSqlDatabase database;
+    AddToStorage *ptrAddToStorage;
+    RemoveFromStorage *ptrRemoveFromStorage;
+
 };
 
 #endif // LIST_H

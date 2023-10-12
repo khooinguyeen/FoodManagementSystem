@@ -24,6 +24,6 @@ void RemoveRecipe::on_buttonBox_accepted()
     query.finish();
     query.clear();
     qDebug() << "Last error: " << query.lastError().text();
-    ui->recipeNameLineEdit->clear();
+
 }
 
