@@ -1,36 +1,19 @@
-#include "shoppinglist.h"
+#include "marketpurchasing.h"
 
-ShoppingList::ShoppingList(QWidget *parent) : List(parent){
-    ptrAddToShoppingList = new AddToShoppingList();
-    ptrRemoveFromShoppingList = new RemoveFromShoppingList();
-}
-
-void ShoppingList::addIngredient(){
-    qDebug() << "add to ShoppingList";
-    ptrAddToShoppingList->show();
-
-}
-void ShoppingList::removeIngredient(){
-    qDebug() << "remove from ShoppingList";
-    ptrRemoveFromShoppingList->show();
-}
-void ShoppingList::loadAllElements(){
+MarketPurchasing::MarketPurchasing(QWidget *parent) : ShoppingList(parent){}
+void MarketPurchasing::loadAllElements(){
     qDebug() << "load in ShoppingList";
     QSqlQuery query(database);
-    query.prepare("select IngredientName from ShoppingList");
+    query.prepare("select IngredientName from ShoppingList where MarketName is not null");
     query.exec();
     while(query.next()){
         QString ingredientName = query.value(0).toString();
-        ui->listWidget->addItem(ingredientName);
+        QListWidgetItem *newItem = new QListWidgetItem(ingredientName);
+        ui->listWidget->addItem(newItem);
     }
 }
 
-ShoppingList::~ShoppingList(){
-    delete ptrAddToShoppingList;
-    delete ptrRemoveFromShoppingList;
-}
-
-void ShoppingList::showInfo(){
+void MarketPurchasing::showMarketInfo(){
     QString selectedIngredient = ui->listWidget->currentItem()->text();
     ui->txtInfo->append(selectedIngredient);
     QSqlQuery query(database);
@@ -46,4 +29,8 @@ void ShoppingList::showInfo(){
     }
     qDebug() << query.lastQuery();
     qDebug() << query.lastError().text();
+}
+
+void MarketPurchasing::showInfo(){
+    showMarketInfo();
 }

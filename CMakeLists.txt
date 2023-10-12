@@ -56,8 +56,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         list.h list.cpp list.ui
         storage.h storage.cpp
         shoppinglist.h shoppinglist.cpp
-        addtostorage.h addtostorage.cpp addtostorage.ui
-        removefromstorage.h removefromstorage.cpp removefromstorage.ui
+        addtoshoppinglist.h addtoshoppinglist.cpp addtoshoppinglist.ui
+        removefromshoppinglist.h removefromshoppinglist.cpp removefromshoppinglist.ui
+        onlineshopping.h onlineshopping.cpp
+        marketpurchasing.h marketpurchasing.cpp
 
 
 
