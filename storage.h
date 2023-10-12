@@ -2,6 +2,8 @@
 #define STORAGE_H
 
 #include "list.h"
+#include "addtostorage.h"
+#include "removefromstorage.h"
 
 class Storage : public List
 {
@@ -12,6 +14,11 @@ public:
     void loadAllElements();
     void showInfo();
     ~Storage();
+private:
+    AddToStorage* ptrAddToStorage;
+    RemoveFromStorage* ptrRemoveFromStorage;
+
 };
+
 
 #endif // STORAGE_H
