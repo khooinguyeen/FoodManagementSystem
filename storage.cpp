@@ -18,16 +18,6 @@ void Storage::removeIngredient(){
     qDebug() << "remove from Storage";
     ptrRemoveFromStorage = new RemoveFromStorage();
     ptrRemoveFromStorage->show();
-
-    /*if (currentItem == nullptr) {
-        QMessageBox::warning(this, "Error","Select an ingredient on the list.");
-    }
-    else {
-        QString ingredientName = currentItem->text();
-        QMessageBox::question(this, "Remove ingredient",
-                              "Do you want to remove " + ingredientName + " ?",
-                              QMessageBox::Yes | QMessageBox::No);
-    }*/
     loadAllElements();
 }
 void Storage::loadAllElements(){

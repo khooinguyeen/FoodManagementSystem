@@ -3,6 +3,7 @@
 
 void AddToShoppingList::loadComboBox()
 {
+    ui->ingredientComboBox->clear();
     QSqlDatabase database = QSqlDatabase::database("DB0");
     QSqlQuery query(database);
 

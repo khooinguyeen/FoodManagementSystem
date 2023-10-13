@@ -15,6 +15,8 @@ void ShoppingList::removeIngredient(){
     ptrRemoveFromShoppingList->show();
 }
 void ShoppingList::loadAllElements(){
+
+    ui->listWidget->clear();
     qDebug() << "load in ShoppingList";
     QSqlQuery query(database);
     query.prepare("select IngredientName from ShoppingList");
@@ -31,6 +33,7 @@ ShoppingList::~ShoppingList(){
 }
 
 void ShoppingList::showInfo(){
+    ui->txtInfo->clear();
     QString selectedIngredient = ui->listWidget->currentItem()->text();
     ui->txtInfo->append(selectedIngredient);
     QSqlQuery query(database);
