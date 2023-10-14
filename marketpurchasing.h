@@ -8,7 +8,7 @@ class MarketPurchasing : public ShoppingList
     Q_OBJECT
 public:
     MarketPurchasing(QWidget *parent = nullptr);
-    void loadAllElements();
+    void loadAllElements() override;
     void showMarketInfo();
     void showInfo() override;
 };

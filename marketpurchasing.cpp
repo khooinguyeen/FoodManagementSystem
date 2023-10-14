@@ -2,9 +2,10 @@
 
 MarketPurchasing::MarketPurchasing(QWidget *parent) : ShoppingList(parent){}
 void MarketPurchasing::loadAllElements(){
+    ui->listWidget->clear();
     qDebug() << "load in ShoppingList";
     QSqlQuery query(database);
-    query.prepare("select IngredientName from ShoppingList where MarketName is not null");
+    query.prepare("select IngredientName from ShoppingList where MarketName is not null and MarketName != ''");
     query.exec();
     while(query.next()){
         QString ingredientName = query.value(0).toString();
@@ -14,10 +15,12 @@ void MarketPurchasing::loadAllElements(){
 }
 
 void MarketPurchasing::showMarketInfo(){
+    ui->txtInfo->clear();
     QString selectedIngredient = ui->listWidget->currentItem()->text();
     ui->txtInfo->append(selectedIngredient);
     QSqlQuery query(database);
-    query.prepare("select MarketName, PhoneNumber, Location from ShoppingList where IngredientName like '%" + selectedIngredient + "%'");
+    query.prepare("select MarketName, PhoneNumber, Location from ShoppingList where IngredientName = :name");
+    query.bindValue(":name", selectedIngredient);
     query.exec();
     while(query.next()){
         QString marketName = query.value(0).toString();

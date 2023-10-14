@@ -6,7 +6,10 @@
 class OnlineShopping : public ShoppingList
 {
 public:
-    OnlineShopping();
+    OnlineShopping(QWidget *parent = nullptr);
+    void loadAllElements() override;
+    void showLink();
+    void showInfo() override;
 };
 
 #endif // ONLINESHOPPING_H
