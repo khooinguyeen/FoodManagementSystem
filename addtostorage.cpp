@@ -10,17 +10,20 @@ AddToStorage::AddToStorage(QWidget *parent) :
 
 AddToStorage::~AddToStorage()
 {
+    qDebug() << "~AddToStorage";
     delete ui;
 }
 
 void AddToStorage::on_cbxloadIngredients_activated(int index)
 {
     on_btnReset_clicked();
+    // initialize database and query method to retrieve data from the database
     QSqlDatabase database = QSqlDatabase::database("DB0");
     QSqlQuery query(database);
     QString ingredientName = ui->cbxloadIngredients->currentText();
     query.prepare("Select IngredientName, IngredientQuantity, IngredientExpiryDate from Ingredient where IngredientName like '%" + ingredientName +"'");
     query.exec();
+    // retrieve choosen ingredient information from Ingredient database and assign to the correspond line
     if(query.next()) {
         ui->ingredientNameLineEdit->setText(query.value(0).toString());
         qDebug() << "Ingredient name line edited: " << query.value(0).toString();
@@ -42,8 +45,10 @@ void AddToStorage::on_btnOk_clicked()
     qDebug() << " Edited Ingredient name: " << ingredientName
              << "Edited Quantity: " << quantity
              << "Edited Expired date: " << expiredDate;
+    // initialize database and query method to retrieve data from the database
     QSqlDatabase database = QSqlDatabase::database("DB0");
     QSqlQuery query(database);
+    // store added ingredient into the Storage database
     query.prepare("insert into Storage (IngredientName, Quantity, ExpiredDate) "
                   "values('" + ingredientName + "','" + quantity + "','" + expiredDate + "')");
     query.exec();
@@ -56,6 +61,7 @@ void AddToStorage::on_btnOk_clicked()
 
 void AddToStorage::on_btnReset_clicked()
 {
+    // clear up all edited information on the screen
     ui->ingredientNameLineEdit->clear();
     ui->quantityLineEdit->clear();
     ui->expiredLineEdit->clear();
@@ -66,6 +72,7 @@ void AddToStorage::on_btnReset_clicked()
 void AddToStorage::on_btnLoadIngredients_clicked()
 {
     ui->cbxloadIngredients->clear();
+    // initialize database and query method to retrieve data from the database
     QSqlDatabase database = QSqlDatabase::database("DB0");
     QSqlQuery query(database);
     query.prepare("Select IngredientName from Ingredient");

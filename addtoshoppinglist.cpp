@@ -4,13 +4,16 @@
 void AddToShoppingList::loadComboBox()
 {
     ui->ingredientComboBox->clear();
+    // initialize database and query method to retrieve data from the database
     QSqlDatabase database = QSqlDatabase::database("DB0");
     QSqlQuery query(database);
-
+    // retrieve ingredient name from Ingredient Storage
     query.prepare("select IngredientName from Ingredient");
     query.exec();
     while(query.next()) {
+        // show ingredient name on the combo box
         ui->ingredientComboBox->addItem(query.value(0).toString());
+        qDebug() << "filling combo box: " << query.value(0).toString();
     }
     qDebug() << query.lastQuery();
     qDebug() << query.lastError().text();
@@ -32,6 +35,7 @@ AddToShoppingList::~AddToShoppingList()
 
 void AddToShoppingList::on_buttonBox_accepted()
 {
+    // initialize database and query method to retrieve data from the database
     QSqlDatabase database = QSqlDatabase::database("DB0");
     QString ingredientName = ui->ingredientComboBox->currentText();
     QString note = ui->noteLineEdit->text();
@@ -39,6 +43,7 @@ void AddToShoppingList::on_buttonBox_accepted()
     QString marketName = ui->marketNameLineEdit->text();
     QString phoneNumber = ui->phoneNumberLineEdit->text();
     QString location = ui->locationLineEdit->text();
+    // add new ingredient into the Shoppinglist database
     QString addQuery = "insert into ShoppingList (IngredientName, Note, OnlineShoppingLink, MarketName, PhoneNumber, Location) "
                        "values('" + ingredientName + "','" + note + "','" + link + "','" + marketName + "','" + phoneNumber + "','" + location + "')";
     qDebug() << ingredientName << note << link << marketName << phoneNumber << location;
@@ -48,5 +53,10 @@ void AddToShoppingList::on_buttonBox_accepted()
     query.finish();
     query.clear();
     qDebug() << "Last error: " << query.lastError().text();
+    ui->noteLineEdit->clear();
+    ui->onlineShoppingLinkLineEdit->clear();
+    ui->marketNameLineEdit->clear();
+    ui->phoneNumberLineEdit->clear();
+    ui->locationLineEdit->clear();
 }
 
