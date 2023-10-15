@@ -54,8 +54,8 @@ void Ingredient::on_btnSearch_clicked()
         loadAllIngredients();
     }
     else {
-            model->setQuery("select * from Ingredient where IngredientName like '%" + ingredientName + "%'", database);
-            ui->tableView->setModel(model);
+        model->setQuery("select * from Ingredient where IngredientName like '%" + ingredientName + "%'", database);
+        ui->tableView->setModel(model);
     }
 }
 
