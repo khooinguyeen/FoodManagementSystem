@@ -34,7 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     // Delete pointers to prevent segmentation fault
-
+    qDebug() << "~MainWindow()";
     delete ui;
     delete ptrIngredient;
     delete ptrRecipe;

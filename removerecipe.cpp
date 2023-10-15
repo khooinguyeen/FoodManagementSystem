@@ -11,6 +11,7 @@ RemoveRecipe::RemoveRecipe(QWidget *parent) :
 
 RemoveRecipe::~RemoveRecipe()
 {
+    qDebug() << "~RemoveRecipe()";
     delete ui;
 }
 

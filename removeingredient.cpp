@@ -12,6 +12,7 @@ RemoveIngredient::RemoveIngredient(QWidget *parent) :
 
 RemoveIngredient::~RemoveIngredient()
 {
+    qDebug() << "~RemoveIngredient()";
     delete ui;
 }
 
@@ -20,6 +21,7 @@ void RemoveIngredient::on_buttonBox_accepted()
     if (validateUserInput() == false) {
         return;
     }
+    // query method to delete ingredient based on input name
     QString ingredientNameToDelete = ui->ingredientNameLineEdit->text();
     QString deleteQuery = "delete from Ingredient where IngredientName = :name";
     QSqlQuery query(database);

@@ -26,6 +26,7 @@ void Recipe::loadAllRecipes(){
 
 Recipe::~Recipe()
 {
+    qDebug() << "~Recipe()";
     delete ui;
     delete ptrAddRecipe;
     delete ptrRemoveRecipe;

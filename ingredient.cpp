@@ -28,7 +28,7 @@ void Ingredient::loadAllIngredients() {
 Ingredient::~Ingredient()
 {
     // Delete all ptr to prevent seg fault
-    qDebug() << "~Ingredient";
+    qDebug() << "~Ingredient()";
     delete ui;
     delete ptrAddIngredient;
     delete ptrRemoveIngredient;

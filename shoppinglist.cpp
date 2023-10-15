@@ -32,7 +32,7 @@ void ShoppingList::loadAllElements(){
 }
 
 ShoppingList::~ShoppingList(){
-    qDebug() << "~Shoppinglist";
+    qDebug() << "~Shoppinglist()";
     delete ptrAddToShoppingList;
     delete ptrRemoveFromShoppingList;
 }

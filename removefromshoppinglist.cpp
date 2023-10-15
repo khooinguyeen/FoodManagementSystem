@@ -15,7 +15,7 @@ RemoveFromShoppingList::RemoveFromShoppingList(QWidget *parent) :
 
 RemoveFromShoppingList::~RemoveFromShoppingList()
 {
-    qDebug() << "~RemoveFromShoppingList";
+    qDebug() << "~RemoveFromShoppingList()";
     delete ui;
 }
 
