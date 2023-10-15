@@ -1,5 +1,6 @@
 #include "removeingredient.h"
 #include "ui_removeingredient.h"
+#include <QMessageBox>
 
 RemoveIngredient::RemoveIngredient(QWidget *parent) :
     QDialog(parent),
@@ -25,6 +26,7 @@ void RemoveIngredient::on_buttonBox_accepted()
     query.finish();
     query.clear();
     qDebug() << "Last error: " << query.lastError().text();
+    QMessageBox::information(this, "Success", "Remove successfully!");
     ui->ingredientNameLineEdit->clear();
 }
 

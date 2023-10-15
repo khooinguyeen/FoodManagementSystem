@@ -1,5 +1,6 @@
 #include "removerecipe.h"
 #include "ui_removerecipe.h"
+#include <QMessageBox>
 
 RemoveRecipe::RemoveRecipe(QWidget *parent) :
     QDialog(parent),
@@ -15,7 +16,7 @@ RemoveRecipe::~RemoveRecipe()
 
 void RemoveRecipe::on_buttonBox_accepted()
 {
-    // Delte the recipe with the name typed from the database
+    // Delete the recipe with the name typed from the database
     QSqlDatabase database = QSqlDatabase::database("DB0");
     QString recipeNameToDelete = ui->recipeNameLineEdit->text();
     QString deleteQuery = "delete from Recipe where RecipeName = :name";
@@ -26,6 +27,7 @@ void RemoveRecipe::on_buttonBox_accepted()
     query.finish();
     query.clear();
     qDebug() << "Last error: " << query.lastError().text();
+    QMessageBox::information(this, "Success", "Remove successfully!");
     ui->recipeNameLineEdit->clear();
 }
 

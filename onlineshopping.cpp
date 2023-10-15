@@ -25,12 +25,14 @@ void OnlineShopping::showLink() {
     ui->txtInfo->append(selectedIngredient);
     // query method to retrieve the choosen ingredient info
     QSqlQuery query(database);
-    query.prepare("select OnlineShoppingLink from ShoppingList where IngredientName = :name");
+    query.prepare("select Note, OnlineShoppingLink from ShoppingList where IngredientName = :name");
     query.bindValue(":name", selectedIngredient);
     query.exec();
     while(query.next()){
         // show ingredient info only with links
-        QString link = query.value(0).toString();
+        QString note = query.value(0).toString();
+        QString link = query.value(1).toString();
+        ui->txtInfo->append("Note: " + note);
         ui->txtInfo->append("Online shopping link: " + link);
     }
     qDebug() << query.lastQuery();
