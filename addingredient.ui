@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>704</width>
-    <height>521</height>
+    <width>611</width>
+    <height>313</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -34,23 +34,13 @@
      <widget class="QLineEdit" name="ingredientNameLineEdit"/>
     </item>
     <item row="1" column="0">
-     <widget class="QLabel" name="quantityLabel">
-      <property name="text">
-       <string>Quantity</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="quantityLineEdit"/>
-    </item>
-    <item row="2" column="0">
      <widget class="QLabel" name="descriptionLabel">
       <property name="text">
        <string>Description</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="1">
+    <item row="1" column="1">
      <widget class="QTextEdit" name="txtDescription"/>
     </item>
    </layout>
@@ -58,8 +48,8 @@
   <widget class="QPushButton" name="btnSave">
    <property name="geometry">
     <rect>
-     <x>510</x>
-     <y>280</y>
+     <x>500</x>
+     <y>270</y>
      <width>80</width>
      <height>24</height>
     </rect>
@@ -71,8 +61,8 @@
   <widget class="QPushButton" name="btnReset">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>280</y>
+     <x>400</x>
+     <y>270</y>
      <width>80</width>
      <height>24</height>
     </rect>

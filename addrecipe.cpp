@@ -1,5 +1,6 @@
 #include "addrecipe.h"
 #include "ui_addrecipe.h"
+#include <QMessageBox>
 
 AddRecipe::AddRecipe(QWidget *parent) :
     QDialog(parent),
@@ -16,6 +17,9 @@ AddRecipe::~AddRecipe()
 
 void AddRecipe::on_btnSave_clicked()
 {
+    if (validateUserInput() == false) {
+        return;
+    }
     // Assign the QStrings with the value input from the line edit
     QString recipeName = ui->recipeNameLineEdit->text();
     QString ingredients = ui->ingredientsLineEdit->text();
@@ -37,6 +41,7 @@ void AddRecipe::on_btnSave_clicked()
     query.exec();
     query.finish();
     query.clear();
+    QMessageBox::information(this, "Success", "Added succesfully!");
     qDebug() << "Last error: " << query.lastError().text();
     on_btnReset_clicked(); // Clear all the inputs from line edit after finished adding new recipes
 }
@@ -50,5 +55,33 @@ void AddRecipe::on_btnReset_clicked()
     ui->cookingTimeLineEdit->clear();
     ui->nutritionLineEdit->clear();
     ui->txtInstruction->clear();
+}
+
+bool AddRecipe::validateUserInput() {
+    QString recipeName = ui->recipeNameLineEdit->text();
+    // check if ingredient name is void
+    if (recipeName.isEmpty()) {
+        QMessageBox::critical(this, "Validation Error", "Input cannot be empty.");
+        return false;
+    }
+    // check if ingredient name already exists
+    QSqlDatabase database = QSqlDatabase::database("DB0");
+    QSqlQuery query(database);
+    query.prepare("select RecipeName from Recipe");
+    query.exec();
+    while(query.next()) {
+        QString existedRecipeName = query.value(0).toString();
+        if (recipeName == existedRecipeName) {
+            QMessageBox::critical(this,"Validation Error", "Name already exist!");
+            query.finish();
+            query.clear();
+            qDebug() << "Last error: " << query.lastError().text();
+            return false;
+        }
+    }
+    query.finish();
+    query.clear();
+    qDebug() << "Last error: " << query.lastError().text();
+    return true;
 }
 

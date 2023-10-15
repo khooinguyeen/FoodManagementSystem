@@ -1,5 +1,6 @@
 #include "mealplan.h"
 #include "ui_mealplan.h"
+#include <QMessageBox>
 
 MealPlan::MealPlan(QWidget *parent) :
     QWidget(parent),
@@ -74,7 +75,12 @@ void MealPlan::on_btnAdd_clicked() //TODO: cannot show info immediately
 
     qDebug() << "Date: " << date << " Breakfast: " << breakfast << " Lunch: " << lunch << " Dinner: " << dinner;
 
-    query.exec();
+    if (query.exec()) {
+        QMessageBox::information(this, "Success", "Changes has been done!");
+    }
+    else {
+        QMessageBox::critical(this, "Error", "Errors when making changes!");
+    }
     query.finish();
     query.clear();
     qDebug() << "Last query: " << query.lastQuery();
@@ -88,7 +94,12 @@ void MealPlan::on_btnDelete_clicked() //TODO: bug still show info until change t
     QString deleteQuery = "delete from MealPlan where Date like '%" + planToDelete + "%'";
     QSqlQuery query(database);
     query.prepare(deleteQuery);
-    query.exec();
+    if (query.exec()) {
+        QMessageBox::information(this, "Success", "Deleted successfully!");
+    }
+    else {
+        QMessageBox::information(this, "Error", "Error when deleting!");
+    }
     query.finish();
     query.clear();
     qDebug() << "Last error: " << query.lastError().text();

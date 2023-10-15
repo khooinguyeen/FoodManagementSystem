@@ -1,5 +1,6 @@
 #include "addtoshoppinglist.h"
 #include "ui_addtoshoppinglist.h"
+#include <QMessageBox>
 
 void AddToShoppingList::loadComboBox()
 {
@@ -35,6 +36,9 @@ AddToShoppingList::~AddToShoppingList()
 
 void AddToShoppingList::on_buttonBox_accepted()
 {
+    if (validateUserInput() == false) {
+        return;
+    }
     // initialize database and query method to retrieve data from the database
     QSqlDatabase database = QSqlDatabase::database("DB0");
     QString ingredientName = ui->ingredientComboBox->currentText();
@@ -52,11 +56,32 @@ void AddToShoppingList::on_buttonBox_accepted()
     query.exec();
     query.finish();
     query.clear();
+    QMessageBox::critical(this, "Success", "Added successfully!");
     qDebug() << "Last error: " << query.lastError().text();
     ui->noteLineEdit->clear();
     ui->onlineShoppingLinkLineEdit->clear();
     ui->marketNameLineEdit->clear();
     ui->phoneNumberLineEdit->clear();
     ui->locationLineEdit->clear();
+}
+
+bool AddToShoppingList::validateUserInput() {
+    QString ingredientName = ui->ingredientComboBox->currentText();
+    // check if name already exist
+    QSqlDatabase database = QSqlDatabase::database("DB0");
+    QSqlQuery query(database);
+    query.prepare("select IngredientName from ShoppingList");
+    query.exec();
+    while(query.next()) {
+        QString existedIngredientName = query.value(0).toString();
+        if (ingredientName == existedIngredientName) {
+            QMessageBox::critical(this, "Error", "Name already existed!");
+            query.finish();
+            query.clear();
+            qDebug() << "Last error: " << query.lastError().text();
+            return false;
+        }
+    }
+    return true;
 }
 

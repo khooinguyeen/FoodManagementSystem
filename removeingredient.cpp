@@ -17,13 +17,14 @@ RemoveIngredient::~RemoveIngredient()
 void RemoveIngredient::on_buttonBox_accepted()
 {
     QString ingredientNameToDelete = ui->ingredientNameLineEdit->text();
-    QString deleteQuery = "delete from Ingredient where IngredientName :name";
+    QString deleteQuery = "delete from Ingredient where IngredientName = :name";
     QSqlQuery query(database);
-    query.bindValue(":name", ingredientNameToDelete);
     query.prepare(deleteQuery);
+    query.bindValue(":name", ingredientNameToDelete);
     query.exec();
     query.finish();
     query.clear();
     qDebug() << "Last error: " << query.lastError().text();
+    ui->ingredientNameLineEdit->clear();
 }
 

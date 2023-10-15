@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "databaseheader.h"
+#include "validation.h"
 
 namespace Ui {
 class RemoveIngredient;
