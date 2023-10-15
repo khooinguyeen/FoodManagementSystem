@@ -18,11 +18,14 @@ public:
     explicit RemoveRecipe(QWidget *parent = nullptr);
     // check user input validity
     bool validateUserInput();
+    void loadComboBox();
     // Destructor to delete ui pointer
     ~RemoveRecipe();
 
 private slots:
     void on_buttonBox_accepted(); // accept to remove chosen recipe from database
+
+    void on_btnLoad_clicked();
 
 private:
     Ui::RemoveRecipe *ui; // pointer to ui of RemoveRecipe

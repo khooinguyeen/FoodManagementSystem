@@ -25,6 +25,8 @@ private slots:
 
     void on_btnSearch_clicked(); // button to search for recipe
 
+    void on_btnRefresh_clicked();
+
 private:
     Ui::Recipe *ui;
     AddRecipe *ptrAddRecipe;

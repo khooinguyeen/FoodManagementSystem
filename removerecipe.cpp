@@ -7,6 +7,7 @@ RemoveRecipe::RemoveRecipe(QWidget *parent) :
     ui(new Ui::RemoveRecipe)
 {
     ui->setupUi(this);
+    database = QSqlDatabase::database("DB0");
 }
 
 RemoveRecipe::~RemoveRecipe()
@@ -21,8 +22,7 @@ void RemoveRecipe::on_buttonBox_accepted()
         return;
     }
     // Delete the recipe with the name typed from the database
-    QSqlDatabase database = QSqlDatabase::database("DB0");
-    QString recipeNameToDelete = ui->recipeNameLineEdit->text();
+    QString recipeNameToDelete = ui->cmbRemove->currentText();
     QString deleteQuery = "delete from Recipe where RecipeName = :name";
     QSqlQuery query(database);
     query.prepare(deleteQuery);
@@ -31,12 +31,33 @@ void RemoveRecipe::on_buttonBox_accepted()
     query.finish();
     query.clear();
     qDebug() << "Last error: " << query.lastError().text();
-    QMessageBox::information(this, "Success", "Remove successfully!");
-    ui->recipeNameLineEdit->clear();
+    QMessageBox::information(this, "Success", "Removed successfully!");
+    ui->cmbRemove->clear();
+}
+
+void RemoveRecipe::loadComboBox()
+{
+    ui->cmbRemove->clear();
+    // retrieve recipe name from database
+    QSqlQuery query(database);
+    query.prepare("select RecipeName from Recipe");
+    query.exec();
+    while(query.next()){
+        // Show ingredient on combo box
+        ui->cmbRemove->addItem(query.value(0).toString());
+        qDebug() << "Filling cmbRemove" << query.value(0).toString();
+    }
+    qDebug() << query.lastQuery();
+    qDebug() << query.lastError().text();
+}
+
+void RemoveRecipe::on_btnLoad_clicked()
+{
+    loadComboBox();
 }
 
 bool RemoveRecipe::validateUserInput() {
-    QString recipeToDelete = ui->recipeNameLineEdit->text();
+    QString recipeToDelete = ui->cmbRemove->currentText();
     // check if input is void
     if (recipeToDelete.isEmpty()) {
         QMessageBox::warning(this, "Warning", "You are removing all recipes!");

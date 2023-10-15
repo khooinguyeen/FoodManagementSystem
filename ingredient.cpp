@@ -67,3 +67,9 @@ void Ingredient::on_btnSearch_clicked()
 
 
 
+
+void Ingredient::on_btnRefresh_clicked()
+{
+    loadAllIngredients();
+}
+

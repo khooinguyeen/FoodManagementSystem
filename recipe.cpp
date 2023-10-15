@@ -62,3 +62,9 @@ void Recipe::on_btnSearch_clicked()
     }
 }
 
+
+void Recipe::on_btnRefresh_clicked()
+{
+    loadAllRecipes();
+}
+

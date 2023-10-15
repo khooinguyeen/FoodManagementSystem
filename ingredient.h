@@ -28,6 +28,8 @@ private slots:
 
     void on_btnRemove_clicked(); // Button to open the RemoveIngredient window
 
+    void on_btnRefresh_clicked();
+
 private:
     Ui::Ingredient *ui;
     AddIngredient *ptrAddIngredient;
