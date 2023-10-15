@@ -8,12 +8,13 @@ Recipe::Recipe(QWidget *parent) :
     ui->setupUi(this);
 
     loadAllRecipes();
-
+    // initialize pointers
     ptrAddRecipe = new AddRecipe();
     ptrRemoveRecipe = new RemoveRecipe();
 }
 
 void Recipe::loadAllRecipes(){
+    // Show all available recipes
     QSqlDatabase database = QSqlDatabase::database("DB0");
 
     if(model == nullptr)
@@ -51,6 +52,7 @@ void Recipe::on_btnSearch_clicked()
     if(model == NULL)
         model = new QSqlQueryModel();
 
+    // If the search button is not clicked, show all the available recipes
     if(recipeName.isEmpty()) {
         loadAllRecipes();
     } else {

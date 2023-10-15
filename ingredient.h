@@ -17,22 +17,22 @@ class Ingredient : public QDialog
 public:
     explicit Ingredient(QWidget *parent = nullptr);
 
-    void loadAllIngredients();
+    void loadAllIngredients(); // Load all the ingredients in the database
 
     ~Ingredient();
 
 private slots:
-    void on_btnAdd_clicked();
+    void on_btnAdd_clicked(); // Button to open the AddIngredient window
 
-    void on_btnSearch_clicked();
+    void on_btnSearch_clicked(); // Button to search for ingredient
 
-    void on_btnRemove_clicked();
+    void on_btnRemove_clicked(); // Button to open the RemoveIngredient window
 
 private:
     Ui::Ingredient *ui;
     AddIngredient *ptrAddIngredient;
     RemoveIngredient *ptrRemoveIngredient;
-    QSqlQueryModel *model;
+    QSqlQueryModel *model; // Query model to perform the search function
 };
 
 #endif // INGREDIENT_H

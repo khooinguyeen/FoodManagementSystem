@@ -17,10 +17,10 @@ public:
     ~RemoveIngredient();
 
 private slots:
-    void on_buttonBox_accepted();
+    void on_buttonBox_accepted(); // accept to remove chosen recipe from database
 
 private:
-    Ui::RemoveIngredient *ui;
+    Ui::RemoveIngredient *ui; // pointer to ui
     QSqlDatabase database;
 };
 

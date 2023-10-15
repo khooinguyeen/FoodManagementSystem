@@ -23,6 +23,7 @@ public:
 
 private slots:
 
+    // open windows of features when clicking corresponding buttons
 
     void on_ingredientButton_clicked();
 
@@ -35,13 +36,17 @@ private slots:
     void on_shoppinglistButton_clicked();
 
 private:
+    // pointer to ui of MainWindow
     Ui::MainWindow *ui;
+
+    // Declare pointer to all other features
     Ingredient *ptrIngredient;
     Recipe *ptrRecipe;
     MealPlan *ptrMealPlan;
     Storage *ptrStorage;
     OnlineShopping *ptrOnlineShopping;
     MarketPurchasing *ptrMarketPurchasing;
-    QSqlDatabase database;
+
+    QSqlDatabase database; // declare database
 };
 #endif // MAINWINDOW_H

@@ -16,11 +16,14 @@ AddRecipe::~AddRecipe()
 
 void AddRecipe::on_btnSave_clicked()
 {
+    // Assign the QStrings with the value input from the line edit
     QString recipeName = ui->recipeNameLineEdit->text();
     QString ingredients = ui->ingredientsLineEdit->text();
     QString cookingTime = ui->cookingTimeLineEdit->text();
     QString nutrition = ui->nutritionLineEdit->text();
     QString instruction = ui->txtInstruction->toPlainText();
+
+    // Add new recipe to database
     QString addQuery = "insert into Recipe (RecipeName, Ingredients, CookingTime, Nutrition, Instruction) "
         "values('" + recipeName + "','" + ingredients + "','" + cookingTime + "','" + nutrition + "','" + instruction + "')";
     qDebug() << "Recipe Name: " << recipeName
@@ -35,12 +38,13 @@ void AddRecipe::on_btnSave_clicked()
     query.finish();
     query.clear();
     qDebug() << "Last error: " << query.lastError().text();
-    on_btnReset_clicked();
+    on_btnReset_clicked(); // Clear all the inputs from line edit after finished adding new recipes
 }
 
 
 void AddRecipe::on_btnReset_clicked()
 {
+    // Clear all the line edit
     ui->recipeNameLineEdit->clear();
     ui->ingredientsLineEdit->clear();
     ui->cookingTimeLineEdit->clear();

@@ -15,11 +15,13 @@ RemoveRecipe::~RemoveRecipe()
 
 void RemoveRecipe::on_buttonBox_accepted()
 {
+    // Delte the recipe with the name typed from the database
     QSqlDatabase database = QSqlDatabase::database("DB0");
     QString recipeNameToDelete = ui->recipeNameLineEdit->text();
-    QString deleteQuery = "delete from Recipe where RecipeName like '%" + recipeNameToDelete + "%'";
+    QString deleteQuery = "delete from Recipe where RecipeName = :name";
     QSqlQuery query(database);
     query.prepare(deleteQuery);
+    query.bindValue(":name", recipeNameToDelete);
     query.exec();
     query.finish();
     query.clear();

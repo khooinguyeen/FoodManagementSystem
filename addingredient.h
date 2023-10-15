@@ -17,9 +17,9 @@ public:
     ~AddIngredient();
 
 private slots:
-    void on_btnReset_clicked();
+    void on_btnReset_clicked(); // Reset the inputs when the reset button is clicked
 
-    void on_btnSave_clicked();
+    void on_btnSave_clicked(); // Save new ingredient when the save button is clicked
 
 private:
     Ui::AddIngredient *ui;

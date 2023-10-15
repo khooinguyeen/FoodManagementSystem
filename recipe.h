@@ -15,15 +15,15 @@ class Recipe : public QDialog
 
 public:
     explicit Recipe(QWidget *parent = nullptr);
-    void loadAllRecipes();
+    void loadAllRecipes(); // load all the recipes available in database
     ~Recipe();
 
 private slots:
-    void on_btnAdd_clicked();
+    void on_btnAdd_clicked(); // button that open the AddRecipe window
 
-    void on_btnRemove_clicked();
+    void on_btnRemove_clicked(); // button that open the RemoveRecipe window
 
-    void on_btnSearch_clicked();
+    void on_btnSearch_clicked(); // button to search for recipe
 
 private:
     Ui::Recipe *ui;

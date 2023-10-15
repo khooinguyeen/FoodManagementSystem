@@ -1,6 +1,8 @@
 #ifndef DATABASEHEADER_H
 #define DATABASEHEADER_H
 
+// necessary libraries
+
 #include <QSqlDatabase>
 #include <QSqlDriver>
 #include <QSqlError>

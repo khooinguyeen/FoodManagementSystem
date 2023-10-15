@@ -17,13 +17,13 @@ public:
     ~AddRecipe();
 
 private slots:
-    void on_btnSave_clicked();
+    void on_btnSave_clicked(); // button to save recipe
 
-    void on_btnReset_clicked();
+    void on_btnReset_clicked(); // button to reset input
 
 private:
-    Ui::AddRecipe *ui;
-    QSqlDatabase database;
+    Ui::AddRecipe *ui; // pointer to ui of AddRecipe feature
+    QSqlDatabase database; // declare database
 };
 
 #endif // ADDRECIPE_H

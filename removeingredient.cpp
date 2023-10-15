@@ -6,6 +6,7 @@ RemoveIngredient::RemoveIngredient(QWidget *parent) :
     ui(new Ui::RemoveIngredient)
 {
     ui->setupUi(this);
+    database = QSqlDatabase::database("DB0");
 }
 
 RemoveIngredient::~RemoveIngredient()
@@ -15,7 +16,6 @@ RemoveIngredient::~RemoveIngredient()
 
 void RemoveIngredient::on_buttonBox_accepted()
 {
-    QSqlDatabase database = QSqlDatabase::database("DB0");
     QString ingredientNameToDelete = ui->ingredientNameLineEdit->text();
     QString deleteQuery = "delete from Ingredient where IngredientName like '%" + ingredientNameToDelete + "%'";
     QSqlQuery query(database);

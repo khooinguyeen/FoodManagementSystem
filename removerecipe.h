@@ -17,11 +17,11 @@ public:
     ~RemoveRecipe();
 
 private slots:
-    void on_buttonBox_accepted();
+    void on_buttonBox_accepted(); // accept to remove chosen recipe from database
 
 private:
-    Ui::RemoveRecipe *ui;
-    QSqlDatabase database;
+    Ui::RemoveRecipe *ui; // pointer to ui of RemoveRecipe
+    QSqlDatabase database; // declare database
 };
 
 #endif // REMOVERECIPE_H
