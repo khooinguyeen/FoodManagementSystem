@@ -42,12 +42,36 @@ set(PROJECT_SOURCES
         list.h
         list.cpp
         list.ui
+        storage.h
+        storage.cpp
+        shoppinglist.h
+        shoppinglist.cpp
+        addtoshoppinglist.h
+        addtoshoppinglist.cpp
+        addtoshoppinglist.ui
+        removefromshoppinglist.h
+        removefromshoppinglist.cpp
+        removefromshoppinglist.ui
+        addtostorage.h
+        addtostorage.cpp
+        addtostorage.ui
+        removefromstorage.h
+        removefromstorage.cpp
+        removefromstorage.ui
+        onlineshopping.h
+        onlineshopping.cpp
+        marketpurchasing.h
+        marketpurchasing.cpp
+        validation.h
+        validation.cpp
  )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(FoodManagementSystem
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        ingredient.h ingredient.cpp ingredient.ui
+        addingredient.h addingredient.cpp addingredient.ui
         removeingredient.h removeingredient.cpp removeingredient.ui
         recipe.h recipe.cpp recipe.ui
         addrecipe.h addrecipe.cpp addrecipe.ui

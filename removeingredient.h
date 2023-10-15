@@ -9,12 +9,16 @@ namespace Ui {
 class RemoveIngredient;
 }
 
-class RemoveIngredient : public QDialog
+class RemoveIngredient : public QDialog, public Validation
 {
     Q_OBJECT
 
 public:
+    // Constructor to open ui
     explicit RemoveIngredient(QWidget *parent = nullptr);
+    // check user input validity
+    bool validateUserInput();
+    // Destructor to delete ui pointer
     ~RemoveIngredient();
 
 private slots:

@@ -56,7 +56,7 @@ void AddToShoppingList::on_buttonBox_accepted()
     query.exec();
     query.finish();
     query.clear();
-    QMessageBox::critical(this, "Success", "Added successfully!");
+    QMessageBox::information(this, "Success", "Added successfully!");
     qDebug() << "Last error: " << query.lastError().text();
     ui->noteLineEdit->clear();
     ui->onlineShoppingLinkLineEdit->clear();
@@ -67,6 +67,9 @@ void AddToShoppingList::on_buttonBox_accepted()
 
 bool AddToShoppingList::validateUserInput() {
     QString ingredientName = ui->ingredientComboBox->currentText();
+    QString link = ui->onlineShoppingLinkLineEdit->text();
+    QString marketName = ui->marketNameLineEdit->text();
+    QString phoneNumber = ui->phoneNumberLineEdit->text();
     // check if name already exist
     QSqlDatabase database = QSqlDatabase::database("DB0");
     QSqlQuery query(database);
@@ -79,6 +82,19 @@ bool AddToShoppingList::validateUserInput() {
             query.finish();
             query.clear();
             qDebug() << "Last error: " << query.lastError().text();
+            return false;
+        }
+    }
+    // check if both link and market name is void
+    if (link.isEmpty() && marketName.isEmpty()) {
+        QMessageBox::critical(this, "Error", "Links and Market name can't both be void!");
+        return false;
+    }
+    // check phone number digit
+    static QRegularExpression regex("^0[2-9][0-9]{8}$");
+    if (!phoneNumber.isEmpty()) {
+        if (!regex.match(phoneNumber).hasMatch()) {
+            QMessageBox::critical(this, "Error", "Wrong phone number format!");
             return false;
         }
     }

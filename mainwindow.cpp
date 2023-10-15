@@ -12,8 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     // initialize database
     database = QSqlDatabase::addDatabase("QSQLITE", "DB0");
-    //database.setDatabaseName("C:/Users/Legion/Documents/GitHub/FoodManagementSystem/FoodManagementSystem.db");
-    database.setDatabaseName("D:/Games and Apps/Qt app/FoodManagementSystem/FoodManagementSystem.db");
+    database.setDatabaseName("C:/Users/Legion/Documents/GitHub/FoodManagementSystem/FoodManagementSystem.db");
+    //database.setDatabaseName("D:/Games and Apps/Qt app/FoodManagementSystem/FoodManagementSystem.db");
     if(!database.open()){
         qDebug() << "Error: Unable to open database..";
     }
@@ -34,7 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     // Delete pointers to prevent segmentation fault
-
+    qDebug() << "~MainWindow()";
     delete ui;
     delete ptrIngredient;
     delete ptrRecipe;

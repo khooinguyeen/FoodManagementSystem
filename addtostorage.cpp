@@ -22,10 +22,11 @@ void AddToStorage::on_cbxloadIngredients_activated(int index)
     QSqlDatabase database = QSqlDatabase::database("DB0");
     QSqlQuery query(database);
     QString ingredientName = ui->cbxloadIngredients->currentText();
-    query.prepare("Select IngredientName from Ingredient where IngredientName like '%" + ingredientName +"'");
+    query.prepare("select IngredientName from Ingredient where IngredientName = :name");
+    query.bindValue(":name", ingredientName);
     query.exec();
     // retrieve choosen ingredient information from Ingredient database and assign to the correspond line
-    if(query.next()) {
+    if (query.next()) {
         ui->ingredientNameLineEdit->setText(query.value(0).toString());
         qDebug() << "Ingredient name line edited: " << query.value(0).toString();
     }

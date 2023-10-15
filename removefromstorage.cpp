@@ -1,5 +1,6 @@
 #include "removefromstorage.h"
 #include "ui_removefromstorage.h"
+#include <QMessageBox>
 
 RemoveFromStorage::RemoveFromStorage(QWidget *parent) :
     QWidget(parent),
@@ -34,6 +35,7 @@ void RemoveFromStorage::on_btnOk_clicked()
     query.finish();
     query.clear();
     qDebug() << "Last error: " << query.lastError().text();
+    QMessageBox::information(this, "Success", "Remove successfully!");
     ui->cbxRemoveIngredient->clear();
 }
 

@@ -25,14 +25,16 @@ void MarketPurchasing::showMarketInfo(){
     ui->txtInfo->append(selectedIngredient);
     // query method to retrive the choosen ingredient info, not include links
     QSqlQuery query(database);
-    query.prepare("select MarketName, PhoneNumber, Location from ShoppingList where IngredientName = :name");
+    query.prepare("select Note, MarketName, PhoneNumber, Location from ShoppingList where IngredientName = :name");
     query.bindValue(":name", selectedIngredient);
     query.exec();
     while(query.next()){
         // show ingredient info on the text box
-        QString marketName = query.value(0).toString();
-        QString phoneNumeber = query.value(1).toString();
-        QString location = query.value(2).toString();
+        QString note = query.value(0).toString();
+        QString marketName = query.value(1).toString();
+        QString phoneNumeber = query.value(2).toString();
+        QString location = query.value(3).toString();
+        ui->txtInfo->append("Note: " + note);
         ui->txtInfo->append("Market Name: " + marketName);
         ui->txtInfo->append("Phone Number: " + phoneNumeber);
         ui->txtInfo->append("Location: " + location);

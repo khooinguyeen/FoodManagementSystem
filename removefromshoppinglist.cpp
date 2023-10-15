@@ -1,5 +1,6 @@
 #include "removefromshoppinglist.h"
 #include "ui_removefromshoppinglist.h"
+#include <QMessageBox>
 
 RemoveFromShoppingList::RemoveFromShoppingList(QWidget *parent) :
     QDialog(parent),
@@ -14,7 +15,7 @@ RemoveFromShoppingList::RemoveFromShoppingList(QWidget *parent) :
 
 RemoveFromShoppingList::~RemoveFromShoppingList()
 {
-    qDebug() << "~RemoveFromShoppingList";
+    qDebug() << "~RemoveFromShoppingList()";
     delete ui;
 }
 
@@ -37,12 +38,14 @@ void RemoveFromShoppingList::on_buttonBox_accepted()
 {
     // query method to delete choosen ingredient from combo box
     QString ingredientNameToRemove = ui->cmbRemove->currentText();
-    QString deleteQuery = "delete from ShoppingList where IngredientName like '%" + ingredientNameToRemove + "%'";
+    QString deleteQuery = "delete from ShoppingList where IngredientName = :name";
     QSqlQuery query(database);
     query.prepare(deleteQuery);
+    query.bindValue(":name", ingredientNameToRemove);
     query.exec();
     query.finish();
     query.clear();
     qDebug() << "Error: " << query.lastError().text();
+    QMessageBox::information(this,"Success", "Remove successfully!");
 }
 
