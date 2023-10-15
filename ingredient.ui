@@ -62,10 +62,10 @@
     <bool>true</bool>
    </attribute>
    <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-    <bool>false</bool>
+    <bool>true</bool>
    </attribute>
    <attribute name="horizontalHeaderStretchLastSection">
-    <bool>false</bool>
+    <bool>true</bool>
    </attribute>
   </widget>
   <widget class="QPushButton" name="btnAdd">

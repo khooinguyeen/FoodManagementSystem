@@ -3,12 +3,13 @@
 
 #include <QDialog>
 #include "databaseheader.h"
+#include "validation.h"
 
 namespace Ui {
 class AddToShoppingList;
 }
 
-class AddToShoppingList : public QDialog
+class AddToShoppingList : public QDialog, public Validation
 {
     Q_OBJECT
 
@@ -19,6 +20,8 @@ public:
     ~AddToShoppingList();
     // function to implement the signal function for the combo box
     void loadComboBox();
+    // check user input validity
+    bool validateUserInput();
 
 private slots:
     // signal function to the accept button to add ingredient to the database

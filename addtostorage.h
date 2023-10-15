@@ -3,18 +3,21 @@
 
 #include <QDialog>
 #include "databaseheader.h"
+#include "validation.h"
 
 namespace Ui {
 class AddToStorage;
 }
 
-class AddToStorage : public QDialog
+class AddToStorage : public QDialog, public Validation
 {
     Q_OBJECT
 
 public:
     // constructor to initialize ui for AddToStorage class
     explicit AddToStorage(QWidget *parent = nullptr);
+    // check user input validity
+    bool validateUserInput();
     // destructor to delete ui pointer
     ~AddToStorage();
 

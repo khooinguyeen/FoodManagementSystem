@@ -3,17 +3,22 @@
 
 #include <QDialog>
 #include "databaseheader.h"
+#include "validation.h"
 
 namespace Ui {
 class AddIngredient;
 }
 
-class AddIngredient : public QDialog
+class AddIngredient : public QDialog, public Validation
 {
     Q_OBJECT
 
 public:
+    // Constructor to initialize ui pointer
     explicit AddIngredient(QWidget *parent = nullptr);
+    // check user input validity
+    bool validateUserInput();
+    // destructor to delete ui pointer
     ~AddIngredient();
 
 private slots:
