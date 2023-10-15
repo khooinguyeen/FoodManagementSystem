@@ -1,6 +1,7 @@
 #include "mealplan.h"
 #include "ui_mealplan.h"
 
+// Initialize ui, mealplan and calendar
 MealPlan::MealPlan(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::MealPlan)
@@ -36,7 +37,7 @@ void MealPlan::on_btnLoad_clicked()
     qDebug() << query.lastError().text();
 }
 
-
+// Show meal plan of selected date
 void MealPlan::on_calendarWidget_selectionChanged()
 {
     ui->txtPlan->clear();
@@ -46,6 +47,7 @@ void MealPlan::on_calendarWidget_selectionChanged()
     QSqlQuery query(database);
     query.prepare("select Breakfast, Lunch, Dinner from MealPlan where Date like '%" + selectedDate + "%'");
     query.exec();
+    // Assign QString values with values found from query and print it to line edit
     if (query.next()) {
         QString breakfast = query.value(0).toString();
         QString lunch = query.value(1).toString();
@@ -61,6 +63,7 @@ void MealPlan::on_calendarWidget_selectionChanged()
 
 void MealPlan::on_btnAdd_clicked() //TODO: cannot show info immediately
 {
+    // Convert the inputs
     QString date = calendar->selectedDate().toString();
     QString breakfast = ui->cmbBreakfast->currentText();
     QString lunch = ui->cmbLunch->currentText();
@@ -84,6 +87,7 @@ void MealPlan::on_btnAdd_clicked() //TODO: cannot show info immediately
 
 void MealPlan::on_btnDelete_clicked() //TODO: bug still show info until change to other date
 {
+    // Delete the plan of the selected date
     QString planToDelete = calendar->selectedDate().toString();
     QString deleteQuery = "delete from MealPlan where Date like '%" + planToDelete + "%'";
     QSqlQuery query(database);

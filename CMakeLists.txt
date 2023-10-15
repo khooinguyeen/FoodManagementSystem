@@ -62,6 +62,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         marketpurchasing.h marketpurchasing.cpp
         addtostorage.h addtostorage.cpp addtostorage.ui
         removefromstorage.h removefromstorage.cpp removefromstorage.ui
+        resource.qrc
 
 
 
