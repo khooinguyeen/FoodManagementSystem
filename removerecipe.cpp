@@ -16,6 +16,9 @@ RemoveRecipe::~RemoveRecipe()
 
 void RemoveRecipe::on_buttonBox_accepted()
 {
+    if (validateUserInput() == false) {
+        return;
+    }
     // Delete the recipe with the name typed from the database
     QSqlDatabase database = QSqlDatabase::database("DB0");
     QString recipeNameToDelete = ui->recipeNameLineEdit->text();
@@ -29,5 +32,27 @@ void RemoveRecipe::on_buttonBox_accepted()
     qDebug() << "Last error: " << query.lastError().text();
     QMessageBox::information(this, "Success", "Remove successfully!");
     ui->recipeNameLineEdit->clear();
+}
+
+bool RemoveRecipe::validateUserInput() {
+    QString recipeToDelete = ui->recipeNameLineEdit->text();
+    // check if input is void
+    if (recipeToDelete.isEmpty()) {
+        QMessageBox::warning(this, "Warning", "You are removing all recipes!");
+        return true;
+    }
+    // check if no recipe name match the input
+    QSqlDatabase database = QSqlDatabase::database("DB0");
+    QSqlQuery query(database);
+    query.prepare("select RecipeName from Recipe");
+    query.exec();
+    while(query.next()) {
+        QString existedRecipeName = query.value(0).toString();
+        if (recipeToDelete == existedRecipeName) {
+            return true;
+        }
+    }
+    QMessageBox::critical(this, "Error", "No recipes'names matched your input!");
+    return false;
 }
 
