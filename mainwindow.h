@@ -29,7 +29,7 @@ private slots:
 
     void on_recipeButton_clicked();
 
-    void on_pushButton_clicked();
+    void on_mealplanButton_clicked();
 
     void on_storageButton_clicked();
 

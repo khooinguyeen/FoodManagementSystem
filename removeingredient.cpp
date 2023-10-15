@@ -17,8 +17,9 @@ RemoveIngredient::~RemoveIngredient()
 void RemoveIngredient::on_buttonBox_accepted()
 {
     QString ingredientNameToDelete = ui->ingredientNameLineEdit->text();
-    QString deleteQuery = "delete from Ingredient where IngredientName like '%" + ingredientNameToDelete + "%'";
+    QString deleteQuery = "delete from Ingredient where IngredientName :name";
     QSqlQuery query(database);
+    query.bindValue(":name", ingredientNameToDelete);
     query.prepare(deleteQuery);
     query.exec();
     query.finish();
