@@ -87,6 +87,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         addtostorage.h addtostorage.cpp addtostorage.ui
         removefromstorage.h removefromstorage.cpp removefromstorage.ui
         validation.h validation.cpp
+        resource.qrc
 
 
 

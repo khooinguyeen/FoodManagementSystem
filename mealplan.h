@@ -18,15 +18,16 @@ public:
     ~MealPlan();
 
 private slots:
-    void on_btnLoad_clicked();
+    void on_btnLoad_clicked(); // Load all available recipes
 
-    void on_calendarWidget_selectionChanged();
+    void on_calendarWidget_selectionChanged(); // Show info of current date when date selection changed
 
-    void on_btnAdd_clicked();
+    void on_btnAdd_clicked(); // Add new meal plan to a date
 
-    void on_btnDelete_clicked();
+    void on_btnDelete_clicked(); // Delete meal plan of selected date
 
 private:
+    // Declare value
     Ui::MealPlan *ui;
     QSqlDatabase database;
     QCalendarWidget *calendar;
