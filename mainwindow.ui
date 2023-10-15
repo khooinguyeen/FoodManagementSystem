@@ -6,12 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>598</width>
+    <height>366</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/background.jpg);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="ingredientButton">
@@ -19,8 +25,8 @@
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>80</width>
-      <height>24</height>
+      <width>101</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -31,9 +37,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>50</y>
-      <width>80</width>
-      <height>24</height>
+      <y>70</y>
+      <width>101</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -44,9 +50,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>80</y>
-      <width>80</width>
-      <height>24</height>
+      <y>120</y>
+      <width>101</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -57,9 +63,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>110</y>
-      <width>80</width>
-      <height>24</height>
+      <y>170</y>
+      <width>101</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -70,9 +76,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>140</y>
-      <width>80</width>
-      <height>24</height>
+      <y>220</y>
+      <width>101</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
