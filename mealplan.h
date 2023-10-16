@@ -15,6 +15,7 @@ class MealPlan : public QWidget
 
 public:
     explicit MealPlan(QWidget *parent = nullptr);
+    void showMealPlan();
     ~MealPlan();
 
 private slots:

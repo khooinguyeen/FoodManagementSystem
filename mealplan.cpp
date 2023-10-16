@@ -10,6 +10,7 @@ MealPlan::MealPlan(QWidget *parent) :
     ui->setupUi(this);
     calendar = ui->calendarWidget;
     database = QSqlDatabase::database("DB0");
+    showMealPlan();
 }
 
 MealPlan::~MealPlan()
@@ -41,24 +42,7 @@ void MealPlan::on_btnLoad_clicked()
 // Show meal plan of selected date
 void MealPlan::on_calendarWidget_selectionChanged()
 {
-    ui->txtPlan->clear();
-    qDebug() << ui->calendarWidget->selectedDate().toString("yyyy-MM-dd");
-    QString selectedDate = calendar->selectedDate().toString();
-    ui->txtPlan->append(calendar->selectedDate().toString());
-    QSqlQuery query(database);
-    query.prepare("select Breakfast, Lunch, Dinner from MealPlan where Date like '%" + selectedDate + "%'");
-    query.exec();
-    // Assign QString values with values found from query and print it to line edit
-    if (query.next()) {
-        QString breakfast = query.value(0).toString();
-        QString lunch = query.value(1).toString();
-        QString dinner = query.value(2).toString();
-        ui->txtPlan->append("Breakfast: " + breakfast);
-        ui->txtPlan->append("Lunch: " + lunch);
-        ui->txtPlan->append("Dinner: " + dinner);
-    }
-    qDebug() << query.lastQuery();
-    qDebug() << query.lastError().text();
+    showMealPlan();
 }
 
 
@@ -88,6 +72,7 @@ void MealPlan::on_btnAdd_clicked() //TODO: cannot show info immediately
     query.clear();
     qDebug() << "Last query: " << query.lastQuery();
     qDebug() << "Last error: " << query.lastError();
+    showMealPlan();
 }
 
 
@@ -107,6 +92,29 @@ void MealPlan::on_btnDelete_clicked() //TODO: bug still show info until change t
     query.finish();
     query.clear();
     qDebug() << "Last error: " << query.lastError().text();
+    showMealPlan();
 }
 
 //TODO create a refresh function
+
+void MealPlan::showMealPlan()
+{
+    ui->txtPlan->clear();
+    qDebug() << ui->calendarWidget->selectedDate().toString("yyyy-MM-dd");
+    QString selectedDate = calendar->selectedDate().toString();
+    ui->txtPlan->append(calendar->selectedDate().toString());
+    QSqlQuery query(database);
+    query.prepare("select Breakfast, Lunch, Dinner from MealPlan where Date like '%" + selectedDate + "%'");
+    query.exec();
+    // Assign QString values with values found from query and print it to line edit
+    if (query.next()) {
+        QString breakfast = query.value(0).toString();
+        QString lunch = query.value(1).toString();
+        QString dinner = query.value(2).toString();
+        ui->txtPlan->append("Breakfast: " + breakfast);
+        ui->txtPlan->append("Lunch: " + lunch);
+        ui->txtPlan->append("Dinner: " + dinner);
+    }
+    qDebug() << query.lastQuery();
+    qDebug() << query.lastError().text();
+}

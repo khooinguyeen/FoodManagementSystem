@@ -28,7 +28,7 @@ private slots:
 
     void on_btnRemove_clicked(); // Button to open the RemoveIngredient window
 
-    void on_btnRefresh_clicked();
+    void on_btnRefresh_clicked(); // Button to refresh the table
 
 private:
     Ui::Ingredient *ui;

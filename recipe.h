@@ -25,7 +25,7 @@ private slots:
 
     void on_btnSearch_clicked(); // button to search for recipe
 
-    void on_btnRefresh_clicked();
+    void on_btnRefresh_clicked(); // button to refresh the table
 
 private:
     Ui::Recipe *ui;
