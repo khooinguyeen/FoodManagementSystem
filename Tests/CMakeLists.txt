@@ -13,10 +13,11 @@ function(SETUP_TESTS)
        foreach(_testname ${ARGN})
            add_executable(${_testname} tst_${_testname}.cpp )
            add_test(NAME ${_testname} COMMAND ${_testname})
-           target_link_libraries(${_testname} Qt${QT_MAJOR_VERISION}::Test FMS)
+           target_link_libraries(${_testname} Qt${QT_MAJOR_VERISION}::Test Qt${QT_MAJOR_VERSION}::Widgets Qt${QT_VERSION_MAJOR}::Sql FMS )
        endforeach()
 endfunction()
 
 SETUP_TESTS(
-   ingredient recipe
+   ingredient
+   recipe
 )

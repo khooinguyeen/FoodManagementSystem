@@ -21,6 +21,7 @@ public:
 
     ~Ingredient();
 
+
 private slots:
     void on_btnAdd_clicked(); // Button to open the AddIngredient window
 
@@ -31,6 +32,7 @@ private slots:
     void on_btnRefresh_clicked(); // Button to refresh the table
 
 private:
+    friend class TestIngredient;
     Ui::Ingredient *ui;
     AddIngredient *ptrAddIngredient;
     RemoveIngredient *ptrRemoveIngredient;
