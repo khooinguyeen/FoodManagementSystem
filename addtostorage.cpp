@@ -17,7 +17,7 @@ AddToStorage::~AddToStorage()
 
 void AddToStorage::on_cbxloadIngredients_activated(int index)
 {
-    on_btnReset_clicked();
+
     // initialize database and query method to retrieve data from the database
     QSqlDatabase database = QSqlDatabase::database("DB0");
     QSqlQuery query(database);
@@ -26,7 +26,7 @@ void AddToStorage::on_cbxloadIngredients_activated(int index)
     query.bindValue(":name", ingredientName);
     query.exec();
     // retrieve choosen ingredient information from Ingredient database and assign to the correspond line
-    if (query.next()) {
+    while (query.next()) {
         ui->ingredientNameLineEdit->setText(query.value(0).toString());
         qDebug() << "Ingredient name line edited: " << query.value(0).toString();
     }
