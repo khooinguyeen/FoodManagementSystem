@@ -11,7 +11,8 @@ public:
 private slots:
     void inItTestCase() {
         QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE", "DB0");
-        database.setDatabaseName("C:/Users/Legion/Documents/GitHub/FoodManagementSystem/FoodManagementSystem.db");
+        database.setDatabaseName("D:/Games and Apps/Qt app/FoodManagementSystem/FoodManagementSystem.db");
+//        database.setDatabaseName("C:/Users/Legion/Documents/GitHub/FoodManagementSystem/FoodManagementSystem.db");
     }
 
     void testloadAllIngredients() {
