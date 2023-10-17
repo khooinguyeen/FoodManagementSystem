@@ -36,11 +36,13 @@ Ingredient::~Ingredient()
 
 void Ingredient::on_btnAdd_clicked()
 {
+    ptrAddIngredient->setWindowTitle("Add");
     ptrAddIngredient->show(); // Show AddIngredient window
 }
 
 void Ingredient::on_btnRemove_clicked()
 {
+    ptrRemoveIngredient->setWindowTitle("Remove");
     ptrRemoveIngredient->show(); // Show RemoveIngredient window
 }
 

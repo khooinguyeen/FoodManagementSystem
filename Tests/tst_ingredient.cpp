@@ -54,7 +54,7 @@ private slots:
     void testSearchIngredient() {
 
         Ingredient ingredient;
-        const QString expectedIngredientName = "ga";
+        const QString expectedIngredientName = "Egg";
         ingredient.ui->txtIngredient->setText(expectedIngredientName);
 
         // Perform the function

@@ -34,12 +34,14 @@ Recipe::~Recipe()
 
 void Recipe::on_btnAdd_clicked()
 {
+    ptrAddRecipe->setWindowTitle("Add");
     ptrAddRecipe->show();
 }
 
 
 void Recipe::on_btnRemove_clicked()
 {
+    ptrRemoveRecipe->setWindowTitle("Remove");
     ptrRemoveRecipe->show();
 }
 

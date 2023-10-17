@@ -56,7 +56,7 @@ private slots:
     void testSearchRecipe() {
         // Simulate user input
         QLineEdit searchline;
-        QTest::keyClicks(&searchline, "k");
+        QTest::keyClicks(&searchline, "Fried Egg");
 
         // Query the database
         QSqlDatabase database = QSqlDatabase::database("DB0");

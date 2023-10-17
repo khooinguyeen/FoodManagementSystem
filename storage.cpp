@@ -10,6 +10,7 @@ void Storage::addIngredient(){
     qDebug() << "add to Storage";
     // initialize the pointer to ui for AddToStorage class
     ptrAddToStorage = new AddToStorage();
+    ptrAddToStorage->setWindowTitle("Add");
     ptrAddToStorage->show();
     loadAllElements();
 }
@@ -19,6 +20,7 @@ void Storage::removeIngredient(){
     qDebug() << "remove from Storage";
     // initialize the pointer to ui for RemoveFromStorage class
     ptrRemoveFromStorage = new RemoveFromStorage();
+    ptrRemoveFromStorage->setWindowTitle("Remove");
     ptrRemoveFromStorage->show();
     loadAllElements();
 }

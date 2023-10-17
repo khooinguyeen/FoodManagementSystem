@@ -8,12 +8,14 @@ ShoppingList::ShoppingList(QWidget *parent) : List(parent){
 void ShoppingList::addIngredient(){
     qDebug() << "add to ShoppingList";
     // open window to add ingredient
+    ptrAddToShoppingList->setWindowTitle("Add");
     ptrAddToShoppingList->show();
 
 }
 void ShoppingList::removeIngredient(){
     qDebug() << "remove from ShoppingList";
     // open window to remove ingredient
+    ptrRemoveFromShoppingList->setWindowTitle("Remove");
     ptrRemoveFromShoppingList->show();
 }
 void ShoppingList::loadAllElements(){

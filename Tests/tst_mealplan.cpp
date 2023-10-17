@@ -20,14 +20,14 @@ private slots:
     void testShowMealPlan() {
         MealPlan mealplan;
         mealplan.showMealPlan();
-        QDate selectedDate(2023, 10, 11);
+        QDate selectedDate(2023, 10, 17);
         mealplan.ui->calendarWidget->setSelectedDate(selectedDate);
 
         QTextEdit txtTest;
-        txtTest.append("Wed Oct 11 2023");
-        txtTest.append("Breakfast: k");
-        txtTest.append("Lunch: Spaghetti");
-        txtTest.append("Dinner: Spaghetti");
+        txtTest.append("Tue Oct 17 2023");
+        txtTest.append("Breakfast: Fried Egg");
+        txtTest.append("Lunch: Pasta");
+        txtTest.append("Dinner: Fried Chicken");
 
         QCOMPARE(mealplan.ui->txtPlan->toPlainText(), txtTest.toPlainText());
     }
