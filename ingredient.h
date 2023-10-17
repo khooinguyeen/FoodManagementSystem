@@ -15,12 +15,12 @@ class Ingredient : public QDialog
     Q_OBJECT
 
 public:
+    friend class TestIngredient;
     explicit Ingredient(QWidget *parent = nullptr);
 
     void loadAllIngredients(); // Load all the ingredients in the database
 
     ~Ingredient();
-
 
 private slots:
     void on_btnAdd_clicked(); // Button to open the AddIngredient window
@@ -32,7 +32,7 @@ private slots:
     void on_btnRefresh_clicked(); // Button to refresh the table
 
 private:
-    friend class TestIngredient;
+
     Ui::Ingredient *ui;
     AddIngredient *ptrAddIngredient;
     RemoveIngredient *ptrRemoveIngredient;

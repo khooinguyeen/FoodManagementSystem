@@ -20,6 +20,7 @@ public:
     void showInfo();
     // destructor to clear ui pointers
     ~Storage();
+    friend class TestStorage;
 private:
     // declare pointers to ui for AddToStorage and RemoveFromStorage class
     AddToStorage* ptrAddToStorage;

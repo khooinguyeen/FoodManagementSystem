@@ -26,6 +26,7 @@ public:
     virtual void showInfo() = 0;
     // destructor to delete ui pointer
     ~List();
+    friend class TestStorage;
 
 private slots:
     // declare signal function for add button
