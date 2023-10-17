@@ -20,6 +20,7 @@ public:
     bool validateUserInput();
     // Destructor to delete ui pointer
     ~AddRecipe();
+    friend class TestAddRecipe;
 
 private slots:
     void on_btnSave_clicked(); // button to save recipe

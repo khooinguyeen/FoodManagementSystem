@@ -21,4 +21,8 @@ SETUP_TESTS(
    ingredient
    recipe
    mealplan
+   addingredient
+   removeingredient
+   addrecipe
+   removerecipe
 )
