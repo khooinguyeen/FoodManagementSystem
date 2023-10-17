@@ -20,4 +20,5 @@ endfunction()
 SETUP_TESTS(
    ingredient
    recipe
+   mealplan
 )

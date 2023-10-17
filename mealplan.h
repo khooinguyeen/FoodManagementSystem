@@ -29,6 +29,7 @@ private slots:
 
 private:
     // Declare value
+    friend class TestMealPlan;
     Ui::MealPlan *ui;
     QSqlDatabase database;
     QCalendarWidget *calendar;

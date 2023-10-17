@@ -46,7 +46,7 @@ void MealPlan::on_calendarWidget_selectionChanged()
 }
 
 
-void MealPlan::on_btnAdd_clicked() //TODO: cannot show info immediately
+void MealPlan::on_btnAdd_clicked()
 {
     // Convert the inputs
     QString date = calendar->selectedDate().toString();
@@ -76,7 +76,7 @@ void MealPlan::on_btnAdd_clicked() //TODO: cannot show info immediately
 }
 
 
-void MealPlan::on_btnDelete_clicked() //TODO: bug still show info until change to other date
+void MealPlan::on_btnDelete_clicked()
 {
     // Delete the plan of the selected date
     QString planToDelete = calendar->selectedDate().toString();
@@ -95,7 +95,6 @@ void MealPlan::on_btnDelete_clicked() //TODO: bug still show info until change t
     showMealPlan();
 }
 
-//TODO create a refresh function
 
 void MealPlan::showMealPlan()
 {
@@ -111,9 +110,9 @@ void MealPlan::showMealPlan()
         QString breakfast = query.value(0).toString();
         QString lunch = query.value(1).toString();
         QString dinner = query.value(2).toString();
-        ui->txtPlan->append("Breakfast: " + breakfast);
-        ui->txtPlan->append("Lunch: " + lunch);
-        ui->txtPlan->append("Dinner: " + dinner);
+        ui->txtPlan->append(breakfast);
+        ui->txtPlan->append(lunch);
+        ui->txtPlan->append(dinner);
     }
     qDebug() << query.lastQuery();
     qDebug() << query.lastError().text();
