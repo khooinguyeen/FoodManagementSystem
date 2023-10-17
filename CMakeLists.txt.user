@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 11.0.3, 2023-10-17T12:52:40. -->
+<!-- Written by QtCreator 11.0.3, 2023-10-17T15:18:37. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -70,11 +70,6 @@
    </valuemap>
    <valuemap type="QVariantMap" key="AutoTest.CheckStates">
     <value type="Qt::CheckState" key="1@D:/Games and Apps/Qt app/FoodManagementSystem/Tests/tst_mealplan.cpp:initTestCase">Unchecked</value>
-    <value type="Qt::CheckState" key="1@D:/Games and Apps/Qt app/FoodManagementSystem/mealplan.cpp:on_btnAdd_clicked">Unchecked</value>
-    <value type="Qt::CheckState" key="1@D:/Games and Apps/Qt app/FoodManagementSystem/mealplan.cpp:on_btnDelete_clicked">Unchecked</value>
-    <value type="Qt::CheckState" key="1@D:/Games and Apps/Qt app/FoodManagementSystem/mealplan.cpp:on_btnLoad_clicked">Unchecked</value>
-    <value type="Qt::CheckState" key="1@D:/Games and Apps/Qt app/FoodManagementSystem/mealplan.cpp:on_calendarWidget_selectionChanged">Unchecked</value>
-    <value type="Qt::CheckState" key="1@D:/Games and Apps/Qt app/FoodManagementSystem/mealplan.h:MealPlan">Unchecked</value>
    </valuemap>
    <value type="int" key="AutoTest.RunAfterBuild">0</value>
    <value type="bool" key="AutoTest.UseGlobal">true</value>
@@ -434,9 +429,9 @@
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">recipe</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.recipe</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">recipe</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">mealplan</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.mealplan</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">mealplan</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -450,9 +445,9 @@
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">mealplan</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.mealplan</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">mealplan</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">recipe</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.recipe</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">recipe</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>

@@ -21,4 +21,5 @@ SETUP_TESTS(
    ingredient
    recipe
    mealplan
+   storage
 )
