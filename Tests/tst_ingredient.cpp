@@ -13,10 +13,6 @@ private slots:
         QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE", "DB0");
         database.setDatabaseName("C:/Users/Legion/Documents/GitHub/FoodManagementSystem/FoodManagementSystem.db");
     }
-    void cleanUpTestCase() {
-        database.close();
-        QSqlDatabase::removeDatabase(database.connectionName());
-    }
 
     void testloadAllIngredients() {
         Ingredient ingredient;
@@ -50,6 +46,10 @@ private slots:
         // Compare the lists of ingredient names
         QCOMPARE(ingredientNames.toList(), databaseIngredientNames.toList());
 
+    }
+    void cleanUpTestCase() {
+        database.close();
+        QSqlDatabase::removeDatabase(database.connectionName());
     }
 };
 
