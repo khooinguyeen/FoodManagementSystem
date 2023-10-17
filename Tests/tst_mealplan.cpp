@@ -19,7 +19,17 @@ private slots:
     }
     void testShowMealPlan() {
         MealPlan mealplan;
-        QVERIFY(mealplan.ui->txtPlan->toPlainText() != "");
+        mealplan.showMealPlan();
+        QDate selectedDate(2023, 10, 11);
+        mealplan.ui->calendarWidget->setSelectedDate(selectedDate);
+
+        QTextEdit txtTest;
+        txtTest.append("Wed Oct 11 2023");
+        txtTest.append("Breakfast: k");
+        txtTest.append("Lunch: Spaghetti");
+        txtTest.append("Dinner: Spaghetti");
+
+        QCOMPARE(mealplan.ui->txtPlan->toPlainText(), txtTest.toPlainText());
     }
     void cleanUpTestCase() {
         database.close();
