@@ -46,8 +46,11 @@ void MealPlan::on_calendarWidget_selectionChanged()
 }
 
 
-void MealPlan::on_btnAdd_clicked() //TODO: cannot show info immediately
+void MealPlan::on_btnAdd_clicked()
 {
+    if (validateUserInput() == false) {
+        return;
+    }
     // Convert the inputs
     QString date = calendar->selectedDate().toString();
     QString breakfast = ui->cmbBreakfast->currentText();
@@ -76,7 +79,7 @@ void MealPlan::on_btnAdd_clicked() //TODO: cannot show info immediately
 }
 
 
-void MealPlan::on_btnDelete_clicked() //TODO: bug still show info until change to other date
+void MealPlan::on_btnDelete_clicked()
 {
     // Delete the plan of the selected date
     QString planToDelete = calendar->selectedDate().toString();
@@ -117,4 +120,34 @@ void MealPlan::showMealPlan()
     }
     qDebug() << query.lastQuery();
     qDebug() << query.lastError().text();
+}
+
+bool MealPlan::validateUserInput()
+{
+    QString breakfast = ui->cmbBreakfast->currentText();
+    QString lunch = ui->cmbLunch->currentText();
+    QString dinner = ui->cmbDinner->currentText();
+    // Check if breakfast, lunch and dinner is null
+    if(breakfast.isEmpty() || lunch.isEmpty() || dinner.isEmpty()) {
+        QMessageBox::critical(this, "Validation Error", "Input cannot be empty.");
+        return false;
+    }
+    // Check if mealplan already exist
+    QSqlQuery query(database);
+    query.prepare("select Date from MealPlan");
+    query.exec();
+    while(query.next()) {
+        QString existedDate = query.value(0).toString();
+        if (calendar->selectedDate().toString() == existedDate) {
+            QMessageBox::critical(this,"Validation Error", "Plan already exist!");
+            query.finish();
+            query.clear();
+            qDebug() << "Last error: " << query.lastError().text();
+            return false;
+        }
+    }
+    query.finish();
+    query.clear();
+    qDebug() << "Last error: " << query.lastError().text();
+    return true;
 }

@@ -3,19 +3,25 @@
 
 #include <QWidget>
 #include "databaseheader.h"
+#include "validation.h"
 #include <QCalendarWidget>
 
 namespace Ui {
 class MealPlan;
 }
 
-class MealPlan : public QWidget
+class MealPlan : public QWidget, public Validation
 {
     Q_OBJECT
 
 public:
     explicit MealPlan(QWidget *parent = nullptr);
+
+    // check user input validity
+    bool validateUserInput();
+    // Show mealplan information
     void showMealPlan();
+
     ~MealPlan();
 
 private slots:

@@ -52,7 +52,7 @@ void AddIngredient::on_btnReset_clicked()
 
 bool AddIngredient::validateUserInput() {
     QString ingredientName = ui->ingredientNameLineEdit->text();
-    // check if ingredient name is void
+    // check if ingredient name is null
     if (ingredientName.isEmpty()) {
         QMessageBox::critical(this, "Validation Error", "Input cannot be empty.");
         return false;
