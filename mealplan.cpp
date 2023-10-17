@@ -110,9 +110,9 @@ void MealPlan::showMealPlan()
         QString breakfast = query.value(0).toString();
         QString lunch = query.value(1).toString();
         QString dinner = query.value(2).toString();
-        ui->txtPlan->append(breakfast);
-        ui->txtPlan->append(lunch);
-        ui->txtPlan->append(dinner);
+        ui->txtPlan->append("Breakfast: " + breakfast);
+        ui->txtPlan->append("Lunch: " + lunch);
+        ui->txtPlan->append("Dinner: " + dinner);
     }
     qDebug() << query.lastQuery();
     qDebug() << query.lastError().text();
