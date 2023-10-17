@@ -17,7 +17,7 @@ public:
     explicit Recipe(QWidget *parent = nullptr);
     void loadAllRecipes(); // load all the recipes available in database
     ~Recipe();
-
+    friend class TestRecipe;
 private slots:
     void on_btnAdd_clicked(); // button that open the AddRecipe window
 
