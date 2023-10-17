@@ -39,6 +39,7 @@ private slots:
 
 protected:
     // declare pointer to the ui
+    friend class TestStorage;
     Ui::List *ui;
     // declare database
     QSqlDatabase database;
