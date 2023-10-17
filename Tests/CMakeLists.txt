@@ -22,4 +22,6 @@ SETUP_TESTS(
    recipe
    addingredient
    removeingredient
+   addrecipe
+   removerecipe
 )

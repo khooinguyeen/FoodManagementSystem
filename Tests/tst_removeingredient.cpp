@@ -1,7 +1,6 @@
 #include <QTest>
 #include "../removeingredient.h"
 #include "C:\Users\Legion\Documents\GitHub\build-FoodManagementSystem-Desktop_Qt_6_5_2_MinGW_64_bit-Debug\FMS_autogen\include\ui_removeingredient.h"
-#include "../databaseheader.h"
 
 class TestRemoveIngredient : public QObject
 {
