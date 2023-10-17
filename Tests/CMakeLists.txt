@@ -20,4 +20,6 @@ endfunction()
 SETUP_TESTS(
    ingredient
    recipe
+   addingredient
+   removeingredient
 )

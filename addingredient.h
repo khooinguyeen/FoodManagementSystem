@@ -20,6 +20,7 @@ public:
     bool validateUserInput();
     // destructor to delete ui pointer
     ~AddIngredient();
+    friend class TestAddIngredient;
 
 private slots:
     void on_btnReset_clicked(); // Reset the inputs when the reset button is clicked

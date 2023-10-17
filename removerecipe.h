@@ -21,6 +21,7 @@ public:
     void loadComboBox();
     // Destructor to delete ui pointer
     ~RemoveRecipe();
+    friend class TestRemoveRecipe;
 
 private slots:
     void on_buttonBox_accepted(); // accept to remove chosen recipe from database
