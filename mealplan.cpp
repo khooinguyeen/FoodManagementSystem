@@ -98,7 +98,6 @@ void MealPlan::on_btnDelete_clicked()
     showMealPlan();
 }
 
-//TODO create a refresh function
 
 void MealPlan::showMealPlan()
 {

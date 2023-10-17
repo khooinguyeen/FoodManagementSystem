@@ -9,8 +9,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Sql)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Sql Test)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql Test)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -88,11 +88,61 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         removefromstorage.h removefromstorage.cpp removefromstorage.ui
         validation.h validation.cpp
         resource.qrc
-
-
-
-
     )
+
+set(TEST_SOURCES
+    mainwindow.cpp
+    mainwindow.h
+    mainwindow.ui
+    ingredient.h
+    ingredient.cpp
+    ingredient.ui
+    addingredient.h
+    addingredient.cpp
+    addingredient.ui
+    removeingredient.h
+    removeingredient.cpp
+    removeingredient.ui
+    databaseheader.h
+    recipe.h
+    recipe.cpp
+    recipe.ui
+    addrecipe.h
+    addrecipe.cpp
+    addrecipe.ui
+    removerecipe.h
+    removerecipe.cpp
+    removerecipe.ui
+    mealplan.h
+    mealplan.cpp
+    mealplan.ui
+    list.h
+    list.cpp
+    list.ui
+    storage.h
+    storage.cpp
+    shoppinglist.h
+    shoppinglist.cpp
+    addtoshoppinglist.h
+    addtoshoppinglist.cpp
+    addtoshoppinglist.ui
+    removefromshoppinglist.h
+    removefromshoppinglist.cpp
+    removefromshoppinglist.ui
+    addtostorage.h
+    addtostorage.cpp
+    addtostorage.ui
+    removefromstorage.h
+    removefromstorage.cpp
+    removefromstorage.ui
+    onlineshopping.h
+    onlineshopping.cpp
+    marketpurchasing.h
+    marketpurchasing.cpp
+    validation.h
+    validation.cpp
+)
+
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET FoodManagementSystem APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
@@ -113,18 +163,27 @@ endif()
 
 target_link_libraries(FoodManagementSystem PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Sql)
 
+add_library(FMS SHARED ${TEST_SOURCES}
+)
+
+target_link_libraries(FMS PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Sql)
+add_subdirectory(Tests)
+
+
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
 if(${QT_VERSION} VERSION_LESS 6.1.0)
   set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.FoodManagementSystem)
 endif()
+
 set_target_properties(FoodManagementSystem PROPERTIES
     ${BUNDLE_ID_OPTION}
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
+    ENABLE_EXPORTS TRUE
 )
 
 #include(GNUInstallDirs)
