@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "removerecipe.h"
 #include "addrecipe.h"
+#include "databaseheader.h" // Add database lib because this code cant be run without this 
 
 namespace Ui {
 class Recipe;
